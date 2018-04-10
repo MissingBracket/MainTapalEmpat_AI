@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Image HorizontalAlignment="Left" Height="220" Margin="140,10,0,0" VerticalAlignment="Top" Width="220" RenderTransformOrigin="0.5,0.5"/>
+        <Button Content="Nowa Gra" HorizontalAlignment="Left" Margin="140,252,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+
     </Grid>
 </Window>
