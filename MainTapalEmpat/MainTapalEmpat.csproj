@@ -52,6 +52,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Operacje.cs" />
+    <Compile Include="Plansza.cs" />
+    <Compile Include="Pozycja.cs" />
+    <Compile Include="Ruch.cs" />
     <Compile Include="Tree.cs" />
     <Compile Include="Tree_Node.cs" />
     <Page Include="MainWindow.xaml">
