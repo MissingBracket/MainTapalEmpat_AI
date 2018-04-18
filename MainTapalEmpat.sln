@@ -5,6 +5,16 @@ VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainTapalEmpat", "MainTapalEmpat\MainTapalEmpat.csproj", "{17986CDC-1E25-4F29-BCD5-9E571BE138C2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8F6066DE-202B-43F8-B619-640149722CE3}"
+	ProjectSection(SolutionItems) = preProject
+		MainTapalEmpat\AITree.cs = MainTapalEmpat\AITree.cs
+		MainTapalEmpat\AITree_Node.cs = MainTapalEmpat\AITree_Node.cs
+		MainTapalEmpat\App.xaml.cs = MainTapalEmpat\App.xaml.cs
+		MainTapalEmpat\MainWindow.xaml.cs = MainTapalEmpat\MainWindow.xaml.cs
+		MainTapalEmpat\Tree.cs = MainTapalEmpat\Tree.cs
+		MainTapalEmpat\Tree_Node.cs = MainTapalEmpat\Tree_Node.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
