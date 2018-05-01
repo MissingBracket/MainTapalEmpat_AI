@@ -19,17 +19,27 @@ namespace MainTapalEmpat
     /// </summary>
     public partial class MainWindow : Window
     {
+        
         public MainWindow()
         {
             InitializeComponent();
+            debugBox.Text = "initialised components";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+                
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            //  Zarządzanie obiektem klikniętym
+            //  Wykonywanie ruchu etc
+            Button piece = (Button)sender;
+            debugBox.Text = "TouchedPiece : " + piece.Name;
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
         {
 
         }

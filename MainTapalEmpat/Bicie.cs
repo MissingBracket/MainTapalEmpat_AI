@@ -7,6 +7,10 @@ namespace MainTapalEmpat
 {
     class Bicie
     {
-        public List<Ruch> lRuchBic = new List<Ruch>();
+        public List<Ruch> lRuchBic;
+        public Bicie()
+        {
+            lRuchBic = new List<Ruch>();
+        }
     }
 }

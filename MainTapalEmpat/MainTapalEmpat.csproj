@@ -97,5 +97,11 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\board.png" />
+    <Resource Include="resources\mememan.jpg" />
+    <Resource Include="resources\sheep.png" />
+    <Resource Include="resources\tiger.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
