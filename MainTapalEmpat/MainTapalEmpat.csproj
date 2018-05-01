@@ -52,6 +52,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Bicie.cs" />
     <Compile Include="Operacje.cs" />
     <Compile Include="Plansza.cs" />
     <Compile Include="Pozycja.cs" />
