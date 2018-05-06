@@ -49,5 +49,24 @@ namespace MainTapalEmpat
                 stan[(x * 2) , (y*2)] = 1;
             }   
         }
+        public void dodajTygrysaDoPlanszy(int x, int y)
+        {
+            if (x == 0 && y == 0)
+            {
+                stan[x, y] = 2;
+            }
+            else if (x == 0)
+            {
+                stan[x, (y * 2)] = 2;
+            }
+            else if (y == 0)
+            {
+                stan[(x * 2), y] = 2;
+            }
+            else
+            {
+                stan[(x * 2), (y * 2)] = 2;
+            }
+        }
     }
 }
