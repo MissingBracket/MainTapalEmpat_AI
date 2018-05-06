@@ -20,7 +20,9 @@ namespace MainTapalEmpat
     public partial class MainWindow : Window
     {
         Plansza plansza;
-        Boolean tura_gracza = true;
+        Boolean tura_gracza = false;
+        int licznik_tygrysow = 0;
+        int licznik_owieczek = 0;
 
         public MainWindow()
         {
@@ -35,19 +37,46 @@ namespace MainTapalEmpat
         private void z1Btn_Click(object sender, RoutedEventArgs e)
         {
             Button piece = (Button)sender;
-            if (tura_gracza == true)
+            //2 tygrysy umieszczane na poczatku gry w srodkowym kwadracie
+            if (licznik_tygrysow < 2 )
+            {
+                umiescTygrysyNaPlanszy(piece);
+            }
+            //gracz rozmieszcza owieczki
+            else if (tura_gracza == true && licznik_owieczek < 18)
             {
                 dodajOwieczke(piece);
-                tura_gracza = false;
+                licznik_owieczek++;
+                tura_gracza = true;
             }
-            else
+            //ruch komputera 
+            else if (tura_gracza == false)
+            {
+                //komputer robi ruch
+            }
+            //ruch gracza
+            else if( tura_gracza == true && licznik_owieczek >= 18)
+            {
+                //2 klikniecia = koniec tury
+            }
+           
+        }
+
+        private void umiescTygrysyNaPlanszy(Button piece)
+        {
+            int x = Convert.ToInt32(Char.GetNumericValue(piece.Name[3]));
+            int y = Convert.ToInt32(Char.GetNumericValue(piece.Name[4]));
+            if (x >= 1 && x <= 3 && y >= 1 && y <= 3)
             {
                 dodajTygrysa(piece);
+                licznik_tygrysow++;
+
+            }
+            if (licznik_tygrysow == 1)
+            {
                 tura_gracza = true;
             }
         }
-
-
         private void dodajOwieczke(Button piece)
         {
             piece.Style = FindResource("sheep") as Style;
