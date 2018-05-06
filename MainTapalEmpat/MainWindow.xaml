@@ -5,182 +5,357 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MainTapalEmpat"
         mc:Ignorable="d"
-        Title="MainWindow" Height="720" Width="1024">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="109*"/>
-            <ColumnDefinition Width="605*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.Background>
-            <ImageBrush ImageSource="resources/mememan.jpg"/>
-        </Grid.Background>
-        <Button Content="Zakończ grę" HorizontalAlignment="Left" Margin="929.15,574,-441.4,0" VerticalAlignment="Top" Width="117" Click="Button_Click" Height="30" Background="#FFCF6D29" BorderBrush="#FF5D2D0B" Foreground="White" Grid.Column="1"/>
+        Title="MainWindow" Height="768" Width="1366" WindowState="Maximized">
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="emptyField">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="IsEnabled" Value="True"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Transparent"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
 
-        <Button Height="50" Width="50" Click="Button_Click_1" Name="tigera" Margin="54,327,51.2,313.4">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="resources/tiger.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button Height="50" Width="50" Click="Button_Click_1" Name="tigerb" Margin="104,327,1.2,313.4">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="resources/tiger.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
+        <Style TargetType="Button" x:Key="sheep">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="IsEnabled" Value="True"/>
+            <Setter Property="ContentTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <Grid>
+                            <Image x:Name="img" Source="resources/sheep.png"/>
+                        </Grid>
+                        <DataTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="img" Property="Source" Value="resources/sheep.png"/>
+                            </Trigger>
+                        </DataTemplate.Triggers>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Transparent"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="Button" x:Key="tiger">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="IsEnabled" Value="True"/>
+            <Setter Property="ContentTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <Grid>
+                            <Image x:Name="img" Source="resources/tiger.png"/>
+                        </Grid>
+                        <DataTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="img" Property="Source" Value="resources/tiger.png"/>
+                            </Trigger>
+                        </DataTemplate.Triggers>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Transparent"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
 
+    </Window.Resources>
+    <Viewbox>
+        <Grid Height="768" Width="1366">
 
-        <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepa" Grid.Column="1" Margin="750.8,492,61.6,148.4">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="resources/sheep.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
+            <Grid.Background>
+                <ImageBrush ImageSource="resources/mememan.jpg"/>
+            </Grid.Background>
+            <Button Content="Zakończ grę" HorizontalAlignment="Left" Margin="986,626,0,0" VerticalAlignment="Top" Width="117" Click="Button_Click" Height="30" Background="#FFCF6D29" BorderBrush="#FF5D2D0B" Foreground="White"/>
 
-        <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepb" Grid.Column="1" Margin="700.8,492,111.6,148.4">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="resources/sheep.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-
-        <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepc" Grid.Column="1" Margin="800.8,437,11.6,203.4">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="resources/sheep.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-
-        <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepd" Grid.Column="1" Margin="750.8,437,61.6,203.4">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="resources/sheep.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-
-        <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepe" Grid.Column="1" Margin="700.8,437,111.6,203.4">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="resources/sheep.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-
-        <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepf" Grid.Column="1" Margin="800.8,382,11.6,258.4">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="resources/sheep.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-
-        <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepg" Grid.Column="1" Margin="750.8,382,61.6,258.4">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="resources/sheep.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-
-        <Button Height="50" Width="50" Click="Button_Click_1" Name="sheeph" Grid.Column="1" Margin="700.8,382,111.6,258.4">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="resources/sheep.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-
-        <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepi" Grid.Column="1" Margin="800.8,327,11.6,313.4">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="resources/sheep.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-
-        <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepj" Grid.Column="1" Margin="750.8,327,61.6,313.4">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="resources/sheep.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-
-        <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepk" Grid.Column="1" Margin="700.8,327,111.6,313.4">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="resources/sheep.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-
-        <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepl" Grid.Column="1" Margin="800.8,272,11.6,368.4">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="resources/sheep.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-
-        <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepm" Grid.Column="1" Margin="750.8,272,61.6,368.4">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="resources/sheep.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-
-        <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepn" Grid.Column="1" Margin="700.8,272,111.6,368.4">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="resources/sheep.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-
-        <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepo" Grid.Column="1" Margin="800.8,217,11.6,423.4">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="resources/sheep.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-
-        <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepp" Grid.Column="1" Margin="750.8,217,61.6,423.4">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="resources/sheep.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-
-        <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepq" Grid.Column="1" Margin="700.8,217,111.6,423.4">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="resources/sheep.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-
-        <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepr" Margin="800.8,492,11.6,148.4" Grid.Column="1">
-            <Button.Template>
-                <ControlTemplate>
-                    <Image Source="resources/sheep.png"/>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
+            <!--<Button Height="50" Width="50" Click="Button_Click_1" Name="tigera" Margin="54,327,51.2,313.4">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Source="resources/tiger.png"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Height="50" Width="50" Click="Button_Click_1" Name="tigerb" Margin="104,327,1.2,313.4">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Source="resources/tiger.png"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
 
 
+            <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepa" Grid.Column="1" Margin="750.8,492,61.6,148.4">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Source="resources/sheep.png"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepb" Grid.Column="1" Margin="700.8,492,111.6,148.4">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Source="resources/sheep.png"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepc" Grid.Column="1" Margin="800.8,437,11.6,203.4">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Source="resources/sheep.png"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepd" Grid.Column="1" Margin="750.8,437,61.6,203.4">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Source="resources/sheep.png"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepe" Grid.Column="1" Margin="700.8,437,111.6,203.4">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Source="resources/sheep.png"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepf" Grid.Column="1" Margin="800.8,382,11.6,258.4">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Source="resources/sheep.png"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepg" Grid.Column="1" Margin="750.8,382,61.6,258.4">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Source="resources/sheep.png"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button Height="50" Width="50" Click="Button_Click_1" Name="sheeph" Grid.Column="1" Margin="700.8,382,111.6,258.4">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Source="resources/sheep.png"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepi" Grid.Column="1" Margin="800.8,327,11.6,313.4">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Source="resources/sheep.png"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepj" Grid.Column="1" Margin="750.8,327,61.6,313.4">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Source="resources/sheep.png"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepk" Grid.Column="1" Margin="700.8,327,111.6,313.4">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Source="resources/sheep.png"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepl" Grid.Column="1" Margin="800.8,272,11.6,368.4">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Source="resources/sheep.png"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepm" Grid.Column="1" Margin="750.8,272,61.6,368.4">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Source="resources/sheep.png"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepn" Grid.Column="1" Margin="700.8,272,111.6,368.4">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Source="resources/sheep.png"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepo" Grid.Column="1" Margin="800.8,217,11.6,423.4">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Source="resources/sheep.png"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepp" Grid.Column="1" Margin="750.8,217,61.6,423.4">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Source="resources/sheep.png"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepq" Grid.Column="1" Margin="700.8,217,111.6,423.4">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Source="resources/sheep.png"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepr" Margin="800.8,492,11.6,148.4" Grid.Column="1">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Source="resources/sheep.png"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>-->
 
 
-        <TextBox Name="debugBox" HorizontalAlignment="Left" Height="23" Margin="210.8,175,0,0" TextWrapping="Wrap" Text="debug info" VerticalAlignment="Top" Width="248" IsEnabled="False" Grid.Column="1"/>
-        <Image Grid.Column="1" Source="resources/board.png" HorizontalAlignment="Left" Height="481" Margin="99.8,203,0,0" VerticalAlignment="Top" Width="481"/>
-    </Grid>
 
+
+            <TextBox Name="debugBox" HorizontalAlignment="Left" Height="23" Margin="934,211,0,0" TextWrapping="Wrap" Text="debug info" VerticalAlignment="Top" Width="248" IsEnabled="False"/>
+            <Grid HorizontalAlignment="Left" Height="600" Margin="329,110,0,0" VerticalAlignment="Top" Width="600">
+                <Grid.Background>
+                    <ImageBrush ImageSource="resources/board.png"/>
+                </Grid.Background>
+
+
+                <Grid x:Name="z1" Margin="10,0,530,10" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                    <Button Name="btn40" Tag="80" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                </Grid>
+                <Grid x:Name="z2" Margin="143,0,397,10" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                    <Button Name="btn41" Tag="82" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                </Grid>
+                <Grid x:Name="z3" Margin="271,0,269,10" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                    <Button Name="btn42" Tag="84" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                </Grid>
+                <Grid x:Name="z4" Margin="399,0,141,10" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                    <Button Name="btn43" Tag="86" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                </Grid>
+                <Grid x:Name="z5" Margin="528,0,12,10" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                    <Button Name="btn44" Tag="88" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                </Grid>
+                <Grid x:Name="z6" Margin="10,0,530,141" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                    <Button Name="btn30" Tag="60" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                </Grid>
+                <Grid x:Name="z7" Margin="141,0,399,141" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                    <Button Name="btn31" Tag="62" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                </Grid>
+                <Grid x:Name="z8" Margin="271,0,269,141" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                    <Button Name="btn32" Tag="64" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                </Grid>
+                <Grid x:Name="z9" Margin="403,0,137,141" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                    <Button Name="btn33" Tag="66" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                </Grid>
+                <Grid x:Name="z10" Margin="528,0,12,141" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                    <Button Name="btn34" Tag="68" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                </Grid>
+                <Grid x:Name="z11" Margin="10,0,530,271" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                    <Button Name="btn20" Tag="40" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                </Grid>
+                <Grid x:Name="z12" Margin="143,0,397,271" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                    <Button Name="btn21" Tag="42" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                </Grid>
+                <Grid x:Name="z13" Margin="271,0,269,271" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                    <Button Name="btn22" Tag="44" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                </Grid>
+                <Grid x:Name="z14" Margin="403,0,137,271" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                    <Button Name="btn23" Tag="46" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                </Grid>
+                <Grid x:Name="z15" Margin="528,0,12,271" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                    <Button Name="btn24" Tag="48" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                </Grid>
+                <Grid x:Name="z16" Margin="10,0,530,402" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                    <Button Name="btn10" Tag="20" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                </Grid>
+                <Grid x:Name="z17" Margin="141,0,399,402" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                    <Button Name="btn11" Tag="22" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                </Grid>
+                <Grid x:Name="z18" Margin="271,0,269,402" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                    <Button Name="btn12" Tag="24" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                </Grid>
+                <Grid x:Name="z19" Margin="399,0,141,402" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                    <Button Name="btn13" Tag="26" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                </Grid>
+                <Grid x:Name="z20" Margin="530,0,10,402" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                    <Button Name="btn14" Tag="28" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                </Grid>
+                <Grid x:Name="z21" Margin="10,0,530,530" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                    <Button Name="btn00" Tag="00" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                </Grid>
+                <Grid x:Name="z22" Margin="141,0,399,530" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                    <Button Name="btn01" Tag="02" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                </Grid>
+                <Grid x:Name="z23" Margin="271,0,269,530" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                    <Button Name="btn02" Tag="04" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                </Grid>
+                <Grid x:Name="z24" Margin="399,0,141,530" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                    <Button Name="btn03" Tag="06" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                </Grid>
+                <Grid x:Name="z25" Margin="528,0,12,530" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                    <Button Name="btn04" Tag="08" Style="{StaticResource emptyField}" Click="z1Btn_Click" Height="60" VerticalAlignment="Top"/>
+                </Grid>
+            </Grid>
+
+        </Grid>
+    </Viewbox>
 </Window>

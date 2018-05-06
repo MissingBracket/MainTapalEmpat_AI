@@ -19,24 +19,27 @@ namespace MainTapalEmpat
     /// </summary>
     public partial class MainWindow : Window
     {
-        
+        Plansza plansza;
+
+
         public MainWindow()
         {
             InitializeComponent();
-            debugBox.Text = "initialised components";
+            plansza = new Plansza();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
                 
         }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void z1Btn_Click(object sender, RoutedEventArgs e)
         {
-            //  Zarządzanie obiektem klikniętym
-            //  Wykonywanie ruchu etc
             Button piece = (Button)sender;
+            piece.Style = FindResource("sheep") as Style;
             debugBox.Text = "TouchedPiece : " + piece.Name;
+            int x = Convert.ToInt32(Char.GetNumericValue(piece.Name[3]));
+            int y = Convert.ToInt32(Char.GetNumericValue(piece.Name[4]));
+            plansza.dodajOwieczkeDoPlanszy(x,y); 
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
