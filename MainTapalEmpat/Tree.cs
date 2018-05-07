@@ -28,17 +28,30 @@ namespace MainTapalEmpat
         //  requires parameters with moves to be added to each node
         //  Should be recursive and remove elements as it goes
         //  Or not
-        public void insertMoves(Tree_Node begin)
+        Operacje op;
+        public void insertMoves(Tree_Node begin, Plansza nowa)
         {
+            op = new Operacje();
             if (!(begin.children.Count == 0))// if we are at the final node
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < op.tabRu.Count; i++)
                 {
-                    begin.add(255);
+                    // begin.add(255);
+                    //generujruchy
+                    op.generujMozliweRuchyWilkow(2, nowa.zmien(nowa, op.tabRu.ElementAt(i)));
+                    begin.add(12, op.tabRu);
+                    //begin.add(0, wszystkieRuchy.ElementAt(0).ElementAt(i));
                 }
-
+            //List<List<List<Ruch>>> temp = wszystkieRuchy;
+            //temp.RemoveAt(0;
+            int current = 0;
             foreach (Tree_Node tn in begin.children)
             {
-                insertMoves(tn);
+                op.generujMozliweRuchyWilkow(2, nowa);
+                tn.ruchy = op.tabRu;
+                Plansza temp = nowa.zmien(nowa, op.tabRu.ElementAt(current));
+                if(current < op.tabRu.Count)
+                    current++;
+                insertMoves(tn, temp);
             }
         }
 

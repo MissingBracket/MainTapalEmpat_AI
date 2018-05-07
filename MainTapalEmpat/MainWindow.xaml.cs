@@ -21,6 +21,7 @@ namespace MainTapalEmpat
     {
         Plansza plansza;
         Boolean tura_gracza = false;
+        Operacje operacje;
         int licznik_tygrysow = 0;
         int licznik_owieczek = 0;
 
@@ -28,6 +29,33 @@ namespace MainTapalEmpat
         {
             InitializeComponent();
             plansza = new Plansza();
+            operacje = new Operacje();
+
+
+
+            //komputer robi ruch
+
+            Tree tree = new Tree(0);
+            //dwa wilki
+            tree.root.children.Add(new Tree_Node(0));
+            tree.root.children.Add(new Tree_Node(0));
+
+            operacje.generujMozliweRuchyWilkow(2, plansza);
+            operacje.wypiszMozliweRuchy();
+            //operacje.generujBiciaWilkow(1, plansza);
+            List<List<List<Ruch>>> doDodania = new List<List<List<Ruch>>>();
+            List<List<Ruch>> naWezel = new List<List<Ruch>>();
+            for (int i = 0; i < 25; i++) ;
+                naWezel.Add(operacje.tabRu);
+            doDodania.Add(naWezel);
+            for (int i=0; i<25; i++)
+            {
+                tree.insertMoves(tree.root.children[0], doDodania);
+            }
+            tree.traverse(tree.root);
+
+
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -52,7 +80,8 @@ namespace MainTapalEmpat
             //ruch komputera 
             else if (tura_gracza == false)
             {
-                //komputer robi ruch
+                
+
             }
             //ruch gracza
             else if( tura_gracza == true && licznik_owieczek >= 18)

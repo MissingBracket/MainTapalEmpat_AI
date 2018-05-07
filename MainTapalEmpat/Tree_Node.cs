@@ -8,7 +8,7 @@ namespace MainTapalEmpat
     class Tree_Node
     {
         public List<Tree_Node> children;
-
+        public List<Ruch> ruchy;
         public int val;
 
         public Tree_Node(int x)
@@ -20,7 +20,15 @@ namespace MainTapalEmpat
         public void add(int x)
         {
             this.children.Add(new Tree_Node(x));
-            //this.children.Sort();
+            this.children.Sort();
+            this.ruchy = new List<Ruch>();
+        }
+
+        public void add(int x, List<Ruch> ruchy)
+        {
+            this.children.Add(new Tree_Node(x));
+            this.children.Sort();
+            this.ruchy = ruchy;
         }
 
         public void print()
