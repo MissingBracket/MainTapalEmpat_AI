@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -24,35 +25,79 @@ namespace MainTapalEmpat
         Operacje operacje;
         int licznik_tygrysow = 0;
         int licznik_owieczek = 0;
+        private int[] mv, xy, blokowany;
+        Thread t;
+        static Drzewo tree = new Drzewo();
+        int index2;
 
+        void wykonajRuchKomputera(object sender, EventArgs e)
+        {
+            t = new Thread(funkcja);
+            t.Start();
+            t.Join();
+            //xy = new int[2];
+            //tree.utworzDrzewo();           
+            //int x = tree.alfaBeta(tree.root, -12, 12);           
+            //ruchySi = tree.ZwrocRuchKomputera2(index2);
+            //if (ruchySi != null)
+            //{
+            //    foreach (Ruch val in ruchySi)
+            //    {
+            //        usunPionek(val.skad.x, val.skad.y);
+            //        if (val.bicie) usunPionek(val.bityPionek.x, val.bityPionek.y);
+            //        postawPionekSi(val.dokad.x, val.dokad.y);
+            //    }
+            //    tree.op.wykonajRuchUniwersalny(1, ruchySi, tree.pl.stan);
+            //    Array.Copy(tree.pl.stan, 0, tree.pl.temp, 0, tree.pl.stan.Length);
+            //    blokujPionek = false;
+            //    ruchWykonany = false;
+            //}
+            //printLogic();
+        }
+
+        private void funkcja()
+        {
+
+            xy = new int[2];
+            tree.utworzDrzewo();
+            
+            //index2 = tree.alfaBeta(tree.root, -12, 12);
+
+        }
         public MainWindow()
         {
             InitializeComponent();
             plansza = new Plansza();
             operacje = new Operacje();
+            operacje.generujMozliweRuchyWilkow(2,plansza);
+            operacje.wypiszMozliweRuchy(operacje.tabRu);
+            operacje.generujBiciaWilkow(2,plansza);
+            operacje.wypiszMozliweRuchy(operacje.LBic);
+
+            tree.utworzDrzewo();
 
 
 
             //komputer robi ruch
 
-            Tree tree = new Tree(0);
-            //dwa wilki
-            tree.root.children.Add(new Tree_Node(0));
-            tree.root.children.Add(new Tree_Node(0));
+            //Drzewo tree = new Drzewo(0);
+            ////dwa wilki
+            //tree.root.children.Add(new Wezel(0));
+            //tree.root.children.Add(new Wezel(0));
 
-            operacje.generujMozliweRuchyWilkow(2, plansza);
-            operacje.wypiszMozliweRuchy();
-            //operacje.generujBiciaWilkow(1, plansza);
-            List<List<List<Ruch>>> doDodania = new List<List<List<Ruch>>>();
-            List<List<Ruch>> naWezel = new List<List<Ruch>>();
-            for (int i = 0; i < 25; i++) ;
-                naWezel.Add(operacje.tabRu);
-            doDodania.Add(naWezel);
-            for (int i=0; i<25; i++)
-            {
-                tree.insertMoves(tree.root.children[0], doDodania);
-            }
-            tree.traverse(tree.root);
+            //operacje.generujMozliweRuchyWilkow(2, plansza);
+            //operacje.wypiszMozliweRuchy();
+            ////operacje.generujBiciaWilkow(1, plansza);
+            //List<List<List<Ruch>>> doDodania = new List<List<List<Ruch>>>();
+            //List<List<Ruch>> naWezel = new List<List<Ruch>>();
+            //for (int i = 0; i < 25; i++) ;
+            //    naWezel.Add(operacje.tabRu);
+            //doDodania.Add(naWezel);
+            //for (int i=0; i<25; i++)
+            //{
+            //    tree.insertMoves(tree.root.children[0], doDodania);
+            //}
+            //tree.traverse(tree.root);
 
 
 

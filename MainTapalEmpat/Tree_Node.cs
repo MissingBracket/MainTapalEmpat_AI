@@ -5,40 +5,55 @@ using System.Text;
 
 namespace MainTapalEmpat
 {
-    class Tree_Node
+    class Wezel
     {
-        public List<Tree_Node> children;
-        public List<Ruch> ruchy;
-        public int val;
+        //public Ruch r;
+        public List<Ruch> r;//lista ruchów
+        public List<Wezel> Lpotomkow;
+        public int ocena = 0;
+        public int wartosc = 0;
+        public bool min = false;
+        public bool max = false;
 
-        public Tree_Node(int x)
+        public Wezel()
         {
-            children = new List<Tree_Node>();
-            this.val = x;
+            Lpotomkow = new List<Wezel>();
+            r = new List<Ruch>();
         }
-
-        public void add(int x)
+        public Wezel(List<Ruch> dr, int wart)//Ruch dr)
         {
-            this.children.Add(new Tree_Node(x));
-            this.children.Sort();
-            this.ruchy = new List<Ruch>();
-        }
-
-        public void add(int x, List<Ruch> ruchy)
-        {
-            this.children.Add(new Tree_Node(x));
-            this.children.Sort();
-            this.ruchy = ruchy;
-        }
-
-        public void print()
-        {
-            Console.WriteLine(this.val);
-            foreach (Tree_Node a in children)
+            //r = dr;
+            ocena = wart;
+            r = new List<Ruch>();
+            Lpotomkow = new List<Wezel>();
+            for (int i = 0; i < dr.Count; i++)
             {
-                Console.Write(a.val + " ");
+                r.Add(dr.ElementAt(i));
             }
-            Console.WriteLine();
         }
+
+        public void dodajWezel(Ruch dr, bool Min, bool Max, int sum)
+        {
+            int wart = 0;
+            min = Min;
+            max = Max;
+            wart = sum + 0;
+            List<Ruch> lTemp = new List<Ruch>();
+            lTemp.Add(dr);
+            Lpotomkow.Add(new Wezel(lTemp, wart));//new Wezel(dr));
+            lTemp.Clear();
+        }
+        public void dodajWezel(List<Ruch> lr, bool Min, bool Max, int sum)//przeciążona funkcja 
+        {
+            int wart = 0;
+            min = Min;
+            max = Max;
+            if (Max == true)
+                wart = lr.Count + sum;
+            else if (Min == true)
+                wart = -1 * lr.Count + sum;
+            Lpotomkow.Add(new Wezel(lr, wart));
+        }
+
     }
 }

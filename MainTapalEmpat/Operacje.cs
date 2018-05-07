@@ -295,7 +295,7 @@ namespace MainTapalEmpat
                 }
             }
         }
-        public void wypiszMozliweRuchy()
+        public void wypiszMozliweRuchy(List<Ruch> tabRu)
         {
             Console.WriteLine("Mozliwe ruchy:");
             for (int a = 0; a < tabRu.Count(); a++)
@@ -303,6 +303,14 @@ namespace MainTapalEmpat
                 Console.WriteLine("skad: " + tabRu.ElementAt(a).skad.x.ToString() + "," + tabRu.ElementAt(a).skad.y.ToString() + " ==> " +
                "dokad: " + tabRu.ElementAt(a).dokad.x.ToString() + "," + tabRu.ElementAt(a).dokad.y.ToString());
                 Console.WriteLine();
+            }
+        }
+        public void wypiszMozliweRuchy(List<Bicie> tabRu)
+        {
+            Console.WriteLine("Mozliwe ruchy:");
+            for (int a = 0; a < tabRu.Count(); a++)
+            {
+                Console.WriteLine(LBic.ElementAt(a));
             }
         }
         public void generujBiciaWilkow(int Zawodnik, Plansza pl)
@@ -358,6 +366,7 @@ namespace MainTapalEmpat
                     }
                 }
             }
+            //Console.WriteLine(LBic.Count);
         }
         private void PrzypiszRuch_ZmienStanPlanszy(int Zawodnik, int i, int j, Plansza pl, int x, int y) //funkcja pomocnicza mająca na celu zmienić stan planszy po wykonaniu możliwego bicia
         {
@@ -373,8 +382,18 @@ namespace MainTapalEmpat
             pl.temp[i + x, j + y] = 0;
             pl.temp[i + x / 2, j + y / 2] = 0;
             RozbijListe2(b);
-            LBic.Add(b);
+            //LBic.Add(b);
             Array.Copy(pl.stan, 0, pl.temp, 0, pl.stan.Length);
+        }
+        public void wykonajRuchUniwersalny(int Zawodnik, List<Ruch> lr, int[,] pl)
+        {
+            for (int i = 0; i < lr.Count; i++)
+            {
+                if (lr.ElementAt(i).bicie == true)// jeżeli jest to bicie to w miejscu zbijanego pionka wpisujemy 0
+                    pl[lr.ElementAt(i).bityPionek.x, lr.ElementAt(i).bityPionek.y] = 0;
+                pl[lr.ElementAt(i).skad.x, lr.ElementAt(i).skad.y] = 0;
+                pl[lr.ElementAt(i).dokad.x, lr.ElementAt(i).dokad.y] = Zawodnik;
+            }
         }
         private void RozbijListe2(Bicie b)
         {
