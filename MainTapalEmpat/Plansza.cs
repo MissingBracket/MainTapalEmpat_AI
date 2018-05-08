@@ -7,17 +7,24 @@ namespace MainTapalEmpat
 {
     class Plansza
     {
-        public int[,] stan = new int[9, 9] {{0,3,0,3,0,3,0,3,0},
-                                            {4,6,2,5,4,6,4,5,4},
-                                            {0,3,0,3,0,3,0,3,0},
-                                            {4,5,4,6,4,5,4,6,4},
-                                            {0,3,0,3,0,3,0,3,0},
+        public int[,] stan = new int[9, 9]{ {1,3,1,3,1,3,1,3,1},
                                             {4,6,4,5,4,6,4,5,4},
-                                            {0,3,0,3,0,3,0,3,0},
+                                            {1,3,1,3,0,3,1,3,1},
                                             {4,5,4,6,4,5,4,6,4},
-                                            {0,3,0,3,0,3,0,3,0}};
+                                            {1,3,1,3,1,3,2,3,2},
+                                            {4,6,4,5,4,6,4,5,4},
+                                            {2,3,2,3,2,3,2,3,2},
+                                            {4,5,4,6,4,5,4,6,4},
+                                            {2,3,2,3,2,3,2,3,2}};
 
         public int[,] temp = new int[9, 9];
+
+        public Plansza zmien(Plansza pl, Ruch lr)
+        {
+            Plansza toret = pl;
+            // zmiana planszy na podst tabl ruchow
+            return toret;
+        }
 
         public Plansza()
         {
