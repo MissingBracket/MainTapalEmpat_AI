@@ -9,16 +9,19 @@ namespace MainTapalEmpat
     { 
         public Plansza plansza;
         public List<Wezel> lista_potomkow;
+        public Ruch ruch;
         public int ocena = 0;
         public bool min = false;
         public bool max = false;
 
 
-        public Wezel(Plansza pl, Operacje operacje, int suma)//Ruch dr)
+        public Wezel(Plansza pl, Operacje operacje, int suma,Ruch r)
         {
+            ruch = new Ruch();
+            ruch = r;
             plansza = new Plansza();
             lista_potomkow = new List<Wezel>();
-
+            ocena = suma;
             plansza.uaktualnijStanPlanszy(pl.stan);
         }
 
@@ -30,22 +33,12 @@ namespace MainTapalEmpat
             Plansza temp = new Plansza();
             temp.uaktualnijStanPlanszy(plansza.stan);
             operacje.wykonajRuchIZmienStanPlanszy(zawodnik, ruch, temp.stan);
-            if (ruch.bicie == true)
-            {
-                lista_potomkow.Add(new Wezel(temp, operacje,this.ocena+1));
-            }
-            else
-            {
-                lista_potomkow.Add(new Wezel(temp, operacje, this.ocena));
-            }
-            
+            int nowaOcena = this.ocena + wartosc;
+            lista_potomkow.Add(new Wezel(temp, operacje,nowaOcena,ruch));
+         
            
         }
-        public void nadajOceneWezlowi(int wartosc)
-        {
-           
-            this.ocena = wartosc;
-        }
+
 
     }
 }

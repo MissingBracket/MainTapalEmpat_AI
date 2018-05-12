@@ -7,15 +7,15 @@ namespace MainTapalEmpat
 {
     class Plansza
     {
-        public int[,] stan = new int[9, 9]{ {1,3,1,3,1,3,1,3,1},
+        public int[,] stan = new int[9, 9]{ {0,3,0,3,0,3,0,3,0},
                                             {4,6,4,5,4,6,4,5,4},
-                                            {1,3,1,3,1,3,1,3,1},
+                                            {0,3,0,3,0,3,0,3,0},
                                             {4,5,4,6,4,5,4,6,4},
-                                            {0,3,2,3,1,3,2,3,0},
+                                            {0,3,0,3,0,3,0,3,0},
                                             {4,6,4,5,4,6,4,5,4},
-                                            {2,3,2,3,2,3,2,3,2},
+                                            {0,3,0,3,0,3,0,3,0},
                                             {4,5,4,6,4,5,4,6,4},
-                                            {2,3,2,3,2,3,2,3,2}};
+                                            {0,0,0,3,0,3,0,3,0}};
 
         public int[,] temp = new int[9, 9];
 
@@ -51,38 +51,38 @@ namespace MainTapalEmpat
         {
             if (x == 0 && y == 0)
             {
-                stan[x, y] = 1;
+                stan[x, y] = 2;
             }
             else if (x == 0)
             {
-                stan[x, (y )] = 1;
+                stan[x, (y )] = 2;
             }
             else if (y == 0)
             {
-                stan[(x), y] = 1;
+                stan[(x), y] = 2;
             }
             else
             {
-                stan[(x ) , (y)] = 1;
+                stan[(x ) , (y)] = 2;
             }   
         }
         public void dodajTygrysaDoPlanszy(int x, int y)
         {
             if (x == 0 && y == 0)
             {
-                stan[x, y] = 2;
+                stan[x, y] = 1;
             }
             else if (x == 0)
             {
-                stan[x, (y)] = 2;
+                stan[x, (y)] = 1;
             }
             else if (y == 0)
             {
-                stan[(x ), y] = 2;
+                stan[(x ), y] = 1;
             }
             else
             {
-                stan[(x ), (y)] = 2;
+                stan[(x ), (y)] = 1;
             }
         }
     }

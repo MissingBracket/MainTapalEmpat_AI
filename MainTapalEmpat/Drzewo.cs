@@ -10,14 +10,13 @@ namespace MainTapalEmpat
         public Wezel root;
         //Wezel aktualny;//uzywany to przemieszczania sie pod drzewie
         public Plansza plansza_poczatkowa = new Plansza();
-
         public Operacje operacje = new Operacje();
 
 
 
         public void utworzDrzewo()
         {
-            root = new Wezel(plansza_poczatkowa,operacje,0);
+            root = new Wezel(plansza_poczatkowa,operacje,0, new Ruch());
             utworzDrzewo2(root, 0, 1, false, true);
         }
 
@@ -43,17 +42,16 @@ namespace MainTapalEmpat
                 Max2 = true;
             }
 
-            if (poziom < 5)
+            if (poziom < 10)
             {
                 if (poziom == 0)
                 {
                     operacje.generujBiciaWilkow(1, this.plansza_poczatkowa);
-                    wezel.nadajOceneWezlowi(0);
                     // dodajemy jako potomkow mozliwe bicia
                     for (int j = 0; j < operacje.ListaBic.Count; j++)
                     {
-                        Console.WriteLine("poziom "+poziom+" kulka: " + j + ": dodaje wezel bicia: [" + operacje.ListaBic[j].skad.x + "," + operacje.ListaBic[j].skad.y + "] -->" + "[" + operacje.ListaBic[j].dokad.x + "," + operacje.ListaBic[j].dokad.y + "]");
-                        wezel.dodajWezel(operacje.ListaBic.ElementAt(j), false, true, zawodnik, operacje,1);
+                        //Console.WriteLine("poziom "+poziom+" kulka: " + j + ": dodaje wezel bicia: [" + operacje.ListaBic[j].skad.x + "," + operacje.ListaBic[j].skad.y + "] -->" + "[" + operacje.ListaBic[j].dokad.x + "," + operacje.ListaBic[j].dokad.y + "]");
+                        wezel.dodajWezel(operacje.ListaBic.ElementAt(j), false, true, zawodnik, operacje,0);
                        
                     }
 
@@ -62,7 +60,7 @@ namespace MainTapalEmpat
                         operacje.generujMozliweRuchyWilkow(1, this.plansza_poczatkowa);
                         for (int j = 0; j < operacje.ListaRuchow.Count; j++)
                         {
-                            Console.WriteLine("poziom " + poziom+ " kulka: " + j + ": dodaje wezel ruchu: [" + operacje.ListaRuchow[j].skad.x + "," + operacje.ListaRuchow[j].skad.y + "] -->" + "["+ operacje.ListaRuchow[j].dokad.x + "," + operacje.ListaRuchow[j].dokad.y + "]");
+                            //Console.WriteLine("poziom " + poziom+ " kulka: " + j + ": dodaje wezel ruchu: [" + operacje.ListaRuchow[j].skad.x + "," + operacje.ListaRuchow[j].skad.y + "] -->" + "["+ operacje.ListaRuchow[j].dokad.x + "," + operacje.ListaRuchow[j].dokad.y + "]");
                             root.dodajWezel(operacje.ListaRuchow.ElementAt(j), false, true, zawodnik,operacje,0);
                         }
                     }
@@ -83,14 +81,14 @@ namespace MainTapalEmpat
                     //dla owiec
                     if (Min == true && Max == false)
                     {
-                        wezel.nadajOceneWezlowi(0);
-                        Console.WriteLine("poziom " + poziom + " pusty node na owiec");
+
+                        //Console.WriteLine("poziom " + poziom + " pusty node na owiec");
                         Ruch r = new Ruch();
                         r.skad.x = 1;
                         r.skad.y = 0;
                         r.dokad.x = 1;
                         r.dokad.y = 0;
-                        wezel.plansza.pokazStanPlanszy();
+                        //wezel.plansza.pokazStanPlanszy();
                         wezel.dodajWezel(r, Min, Max,2,operacje,0);
 
                         for (int i = 0; i < wezel.lista_potomkow.Count; i++)
@@ -106,18 +104,17 @@ namespace MainTapalEmpat
 
                         for (int j = 0; j < operacje.ListaBic.Count; j++)
                         {
-                            wezel.nadajOceneWezlowi(1);
-                            Console.WriteLine("poziom " + poziom + " kulka: " + j + ": dodaje wezel bicia: [" + operacje.ListaBic[j].skad.x + "," + operacje.ListaBic[j].skad.y + "] -->" + "[" + operacje.ListaBic[j].dokad.x + "," + operacje.ListaBic[j].dokad.y + "]");
+                            //Console.WriteLine("poziom " + poziom + " kulka: " + j + ": dodaje wezel bicia: [" + operacje.ListaBic[j].skad.x + "," + operacje.ListaBic[j].skad.y + "] -->" + "[" + operacje.ListaBic[j].dokad.x + "," + operacje.ListaBic[j].dokad.y + "]");
                             wezel.dodajWezel(operacje.ListaBic.ElementAt(j), Min, Max, 1,operacje,1);
                         }
 
                         if (operacje.ListaBic.Count == 0)//tylko jeśli nie ma bić to dodajemy jako potomkow mozliwe ruchy
                         {
-                            wezel.nadajOceneWezlowi(0);
-                            operacje.generujMozliweRuchyOwiec(zawodnik, wezel.plansza);
+                            
+                            operacje.generujMozliweRuchyWilkow(zawodnik, wezel.plansza);
                             for (int j = 0; j < operacje.ListaRuchow.Count; j++)
                             {
-                                Console.WriteLine("poziom " + poziom + " kulka: " + j + ": dodaje wezel ruchu: [" + operacje.ListaRuchow[j].skad.x + "," + operacje.ListaRuchow[j].skad.y + "] -->" + "[" + operacje.ListaRuchow[j].dokad.x + "," + operacje.ListaRuchow[j].dokad.y + "]");
+                                //Console.WriteLine("poziom " + poziom + " kulka: " + j + ": dodaje wezel ruchu: [" + operacje.ListaRuchow[j].skad.x + "," + operacje.ListaRuchow[j].skad.y + "] -->" + "[" + operacje.ListaRuchow[j].dokad.x + "," + operacje.ListaRuchow[j].dokad.y + "]");
                                 wezel.dodajWezel(operacje.ListaRuchow.ElementAt(j), Min, Max, 1,operacje,0);
                             }
                         }
@@ -156,12 +153,12 @@ namespace MainTapalEmpat
         {
             if (w.lista_potomkow.Count == 0)
                 return w.ocena;
-            if (w.max == true)
+            if (w.min == true)
             {
                 for (int i = 0; i < w.lista_potomkow.Count; i++)
                 {
-                    a = Math.Max(a, alfaBeta(w.lista_potomkow.ElementAt(i), a, b));
-                    if (a >= b)
+                    a = Math.Min(a, alfaBeta(w.lista_potomkow.ElementAt(i), a, b));
+                    if (a <= b)
                     {
                         w.ocena = b;
                         return b;
@@ -171,12 +168,12 @@ namespace MainTapalEmpat
                 return a;
             }
 
-            else if (w.min == true)
+            else if (w.max == true)
             {
                 for (int i = 0; i < w.lista_potomkow.Count; i++)
                 {
-                    b = Math.Min(b, alfaBeta(w.lista_potomkow.ElementAt(i), a, b));
-                    if (a >= b)
+                    b = Math.Max(b, alfaBeta(w.lista_potomkow.ElementAt(i), a, b));
+                    if (a <= b)
                     {
                         w.ocena = a;
                         return a;
@@ -189,24 +186,20 @@ namespace MainTapalEmpat
             return 0;
         }
 
-        public Ruch zwrocRuchKomputera()
+        public Ruch zwrocRuchKomputera(int alfaBetaValue)
         {
 
-            return new Ruch();
+            try
+            {
+                root.ruch = root.lista_potomkow.Find(x => x.ocena == alfaBetaValue).ruch;               
+                return root.ruch;         
+            }
+            catch (NullReferenceException ex)
+            {
+                return null;
+            }
         }
-        //public List<Ruch> ZwrocRuchKomputera2(int z)
-        //{
-        //    try
-        //    {
-        //        root.lista_ruchow_wezla = root.lista_potomkow.Find(x => x.ocena == z).lista_ruchow_wezla;
-        //        return root.lista_ruchow_wezla;
-        //    }
-        //    catch (NullReferenceException ex)
-        //    {
-        //        return null;
-        //    }
-        //    //root.r = root.Lpotomkow.Find(x => x.ocena == alfaBeta(root)).r;
-        //}
+      
 
 
     }
