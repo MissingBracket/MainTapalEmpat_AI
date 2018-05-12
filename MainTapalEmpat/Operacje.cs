@@ -7,8 +7,8 @@ namespace MainTapalEmpat
 {
     class Operacje
     {
-        public List<Ruch> tabRu = new List<Ruch>();
-        public List<Bicie> LBic = new List<Bicie>(); //Lista zawierająca listę możliwych do wykonania bić przez wilka w danym czasie
+        public List<Ruch> ListaRuchow = new List<Ruch>();
+        public List<Ruch> ListaBic = new List<Ruch>(); //Lista zawierająca listę możliwych do wykonania bić przez wilka w danym czasie
         public void generujMozliweRuchyOwiec(int Zawodnik, Plansza pl)
         {
             for (int i = 0; i < 9; i = i + 2)
@@ -24,7 +24,7 @@ namespace MainTapalEmpat
                                 Ruch r = new Ruch();
                                 r.skad.x = i - 2; r.skad.y = j;
                                 r.dokad.x = i; r.dokad.y = j;
-                                tabRu.Add(r);
+                                ListaRuchow.Add(r);
                             }
                         if (i - 2 >= 0 && j + 2 <= 8)
                             if (pl.temp[i - 2, j + 2] == Zawodnik && pl.temp[i - 1, j + 1] == 5)
@@ -32,7 +32,7 @@ namespace MainTapalEmpat
                                 Ruch r = new Ruch();
                                 r.skad.x = i - 2; r.skad.y = j + 2;
                                 r.dokad.x = i; r.dokad.y = j;
-                                tabRu.Add(r);
+                                ListaRuchow.Add(r);
                             }
                         if (j + 2 <= 8)
                             if (pl.temp[i, j + 2] == Zawodnik && pl.temp[i, j + 1] == 3)
@@ -40,7 +40,7 @@ namespace MainTapalEmpat
                                 Ruch r = new Ruch();
                                 r.skad.x = i; r.skad.y = j + 2;
                                 r.dokad.x = i; r.dokad.y = j;
-                                tabRu.Add(r);
+                                ListaRuchow.Add(r);
                             }
                         if (j + 2 <= 8 && i + 2 <= 8)
                             if (pl.temp[i + 2, j + 2] == Zawodnik && pl.temp[i + 1, j + 1] == 6)
@@ -48,7 +48,7 @@ namespace MainTapalEmpat
                                 Ruch r = new Ruch();
                                 r.skad.x = i + 2; r.skad.y = j + 2;
                                 r.dokad.x = i; r.dokad.y = j;
-                                tabRu.Add(r);
+                                ListaRuchow.Add(r);
                             }
                         if (i + 2 <= 8)
                             if (pl.temp[i + 2, j] == Zawodnik && pl.temp[i + 1, j] == 4)
@@ -56,7 +56,7 @@ namespace MainTapalEmpat
                                 Ruch r = new Ruch();
                                 r.skad.x = i + 2; r.skad.y = j;
                                 r.dokad.x = i; r.dokad.y = j;
-                                tabRu.Add(r);
+                                ListaRuchow.Add(r);
                             }
                         if (j - 2 >= 0 && i + 2 <= 8)
                             if (pl.temp[i + 2, j - 2] == Zawodnik && pl.temp[i + 1, j - 1] == 5)
@@ -64,7 +64,7 @@ namespace MainTapalEmpat
                                 Ruch r = new Ruch();
                                 r.skad.x = i + 2; r.skad.y = j - 2;
                                 r.dokad.x = i; r.dokad.y = j;
-                                tabRu.Add(r);
+                                ListaRuchow.Add(r);
                             }
                         if (j - 2 >= 0)
                             if (pl.temp[i, j - 2] == Zawodnik && pl.temp[i, j - 1] == 3)
@@ -72,7 +72,7 @@ namespace MainTapalEmpat
                                 Ruch r = new Ruch();
                                 r.skad.x = i; r.skad.y = j - 2;
                                 r.dokad.x = i; r.dokad.y = j;
-                                tabRu.Add(r);
+                                ListaRuchow.Add(r);
                             }
                         if (j - 2 >= 0 && i - 2 >= 0)
                             if (pl.temp[i - 2, j - 2] == Zawodnik && pl.temp[i - 1, j - 1] == 6)
@@ -80,7 +80,7 @@ namespace MainTapalEmpat
                                 Ruch r = new Ruch();
                                 r.skad.x = i - 2; r.skad.y = j - 2;
                                 r.dokad.x = i; r.dokad.y = j;
-                                tabRu.Add(r);
+                                ListaRuchow.Add(r);
                             }
                     }
                 }
@@ -107,7 +107,7 @@ namespace MainTapalEmpat
                                         Ruch ri = new Ruch();
                                         ri.skad.x = i + 2; ri.skad.y = j;
                                         ri.dokad.x = a; ri.dokad.y = j;
-                                        tabRu.Add(ri);
+                                        ListaRuchow.Add(ri);
                                         a -= 2;
                                         // Console.WriteLine("dodatkowy");
 
@@ -131,7 +131,7 @@ namespace MainTapalEmpat
                                         Ruch ri = new Ruch();
                                         ri.skad.x = i - 2; ri.skad.y = j;
                                         ri.dokad.x = a; ri.dokad.y = j;
-                                        tabRu.Add(ri);
+                                        ListaRuchow.Add(ri);
                                         a += 2;
                                         // Console.WriteLine("dodatkowy");
 
@@ -155,7 +155,7 @@ namespace MainTapalEmpat
                                         Ruch ri = new Ruch();
                                         ri.skad.x = i; ri.skad.y = j + 2;
                                         ri.dokad.x = i; ri.dokad.y = a;
-                                        tabRu.Add(ri);
+                                        ListaRuchow.Add(ri);
                                         a -= 2;
                                         // Console.WriteLine("dodatkowy");
 
@@ -178,7 +178,7 @@ namespace MainTapalEmpat
                                         Ruch ri = new Ruch();
                                         ri.skad.x = i; ri.skad.y = j - 2;
                                         ri.dokad.x = i; ri.dokad.y = a;
-                                        tabRu.Add(ri);
+                                        ListaRuchow.Add(ri);
                                         a += 2;
                                         // Console.WriteLine("dodatkowy");
 
@@ -202,7 +202,7 @@ namespace MainTapalEmpat
                                         Ruch ri = new Ruch();
                                         ri.skad.x = i + 2; ri.skad.y = j + 2;
                                         ri.dokad.x = a; ri.dokad.y = b;
-                                        tabRu.Add(ri);
+                                        ListaRuchow.Add(ri);
                                         a -= 2;
                                         b -= 2;
                                         // Console.WriteLine("dodatkowy");
@@ -228,7 +228,7 @@ namespace MainTapalEmpat
                                         Ruch ri = new Ruch();
                                         ri.skad.x = i - 2; ri.skad.y = j + 2;
                                         ri.dokad.x = a; ri.dokad.y = b;
-                                        tabRu.Add(ri);
+                                        ListaRuchow.Add(ri);
                                         a += 2;
                                         b -= 2;
                                         // Console.WriteLine("dodatkowy");
@@ -253,7 +253,7 @@ namespace MainTapalEmpat
                                         Ruch ri = new Ruch();
                                         ri.skad.x = i + 2; ri.skad.y = j - 2;
                                         ri.dokad.x = a; ri.dokad.y = b;
-                                        tabRu.Add(ri);
+                                        ListaRuchow.Add(ri);
                                         a -= 2;
                                         b += 2;
                                         // Console.WriteLine("dodatkowy");
@@ -279,7 +279,7 @@ namespace MainTapalEmpat
                                         Ruch ri = new Ruch();
                                         ri.skad.x = i - 2; ri.skad.y = j - 2;
                                         ri.dokad.x = a; ri.dokad.y = b;
-                                        tabRu.Add(ri);
+                                        ListaRuchow.Add(ri);
                                         a += 2;
                                         b += 2;
                                         // Console.WriteLine("dodatkowy");
@@ -305,12 +305,14 @@ namespace MainTapalEmpat
                 Console.WriteLine();
             }
         }
-        public void wypiszMozliweRuchy(List<Bicie> tabRu)
+        public void wypiszMozliweBicia(List<Ruch> tabRu)
         {
-            Console.WriteLine("Mozliwe ruchy:");
+            Console.WriteLine("Mozliwe bicia:");
             for (int a = 0; a < tabRu.Count(); a++)
             {
-                Console.WriteLine(LBic.ElementAt(a));
+                Console.WriteLine("skad: " + tabRu.ElementAt(a).skad.x.ToString() + "," + tabRu.ElementAt(a).skad.y.ToString() + " ==> " +
+               "dokad: " + tabRu.ElementAt(a).dokad.x.ToString() + "," + tabRu.ElementAt(a).dokad.y.ToString());
+                Console.WriteLine();
             }
         }
         public void generujBiciaWilkow(int Zawodnik, Plansza pl)
@@ -324,120 +326,111 @@ namespace MainTapalEmpat
                         if (i + 4 <= 8)
                             if (pl.temp[i + 4, j] == Zawodnik && pl.temp[i + 2, j] != Zawodnik && pl.temp[i + 2, j] != 0 && pl.temp[i + 3, j] == 4 && pl.temp[i + 1, j] == 4)
                             {
-                                PrzypiszRuch_ZmienStanPlanszy(Zawodnik, i, j, pl, 4, 0);
+                                Ruch ri = new Ruch();
+                                ri.bicie = true;
+                                ri.bityPionek.x = i + 2;
+                                ri.bityPionek.y = j;
+                                ri.skad.x = i+4; ri.skad.y = j;
+                                ri.dokad.x = i; ri.dokad.y = j;
+                                ListaBic.Add(ri);
+                                //PrzypiszRuch_ZmienStanPlanszy(Zawodnik, i, j, pl, 4, 0);
 
                             }
                         if (i + 4 <= 8 && j + 4 <= 8)
                             if (pl.temp[i + 4, j + 4] == Zawodnik && pl.temp[i + 2, j + 2] != Zawodnik && pl.temp[i + 2, j + 2] != 0 && pl.temp[i + 3, j + 3] == 6 && pl.temp[i + 1, j + 1] == 6)
                             {
-                                PrzypiszRuch_ZmienStanPlanszy(Zawodnik, i, j, pl, 4, 4);
+                                Ruch ri = new Ruch();
+                                ri.bicie = true;
+                                ri.bityPionek.x = i + 2;
+                                ri.bityPionek.y = j + 2;
+                                ri.skad.x = i + 4; ri.skad.y = j+4;
+                                ri.dokad.x = i; ri.dokad.y = j;
+                                ListaBic.Add(ri);
 
                             }
                         if (j + 4 <= 8)
                             if (pl.temp[i, j + 4] == Zawodnik && pl.temp[i, j + 2] != Zawodnik && pl.temp[i, j + 2] != 0 && pl.temp[i, j + 3] == 3 && pl.temp[i, j + 1] == 3)
                             {
-                                PrzypiszRuch_ZmienStanPlanszy(Zawodnik, i, j, pl, 0, 4);
+                                Ruch ri = new Ruch();
+                                ri.bicie = true;
+                                ri.bityPionek.x = i ;
+                                ri.bityPionek.y = j + 2;
+                                ri.skad.x = i; ri.skad.y = j +4;
+                                ri.dokad.x = i; ri.dokad.y = j;
+                                ListaBic.Add(ri);
                             }
                         if (i - 4 >= 0 && j + 4 <= 8)
                             if (pl.temp[i - 4, j + 4] == Zawodnik && pl.temp[i - 2, j + 2] != Zawodnik && pl.temp[i - 2, j + 2] != 0 && pl.temp[i - 3, j + 3] == 5 && pl.temp[i - 1, j + 1] == 5)
                             {
-                                PrzypiszRuch_ZmienStanPlanszy(Zawodnik, i, j, pl, -4, 4);
+                                Ruch ri = new Ruch();
+                                ri.bicie = true;
+                                ri.bityPionek.x = i - 2;
+                                ri.bityPionek.y = j + 2;
+                                ri.skad.x = i - 4; ri.skad.y = j+4;
+                                ri.dokad.x = i; ri.dokad.y = j;
+                                ListaBic.Add(ri);
                             }
                         if (i - 4 >= 0)
                             if (pl.temp[i - 4, j] == Zawodnik && pl.temp[i - 2, j] != Zawodnik && pl.temp[i - 2, j] != 0 && pl.temp[i - 3, j] == 4 && pl.temp[i - 1, j] == 4)
                             {
-                                PrzypiszRuch_ZmienStanPlanszy(Zawodnik, i, j, pl, -4, 0);
+                                Ruch ri = new Ruch();
+                                ri.bicie = true;
+                                ri.bityPionek.x = i - 2;
+                                ri.bityPionek.y = j;
+                                ri.skad.x = i -4; ri.skad.y = j;
+                                ri.dokad.x = i; ri.dokad.y = j;
+                                ListaBic.Add(ri);
                             }
                         if (i - 4 >= 0 && j - 4 >= 0)
                             if (pl.temp[i - 4, j - 4] == Zawodnik && pl.temp[i - 2, j - 2] != Zawodnik && pl.temp[i - 2, j - 2] != 0 && pl.temp[i - 3, j - 3] == 6 && pl.temp[i - 1, j - 1] == 6)
                             {
-                                PrzypiszRuch_ZmienStanPlanszy(Zawodnik, i, j, pl, -4, -4);
+                                Ruch ri = new Ruch();
+                                ri.bicie = true;
+                                ri.bityPionek.x = i - 2;
+                                ri.bityPionek.y = j - 2;
+                                ri.skad.x = i - 4; ri.skad.y = j - 4;
+                                ri.dokad.x = i; ri.dokad.y = j;
+                                ListaBic.Add(ri);
                             }
                         if (j - 4 >= 0)
                             if (pl.temp[i, j - 4] == Zawodnik && pl.temp[i, j - 2] != Zawodnik && pl.temp[i, j - 2] != 0 && pl.temp[i, j - 3] == 3 && pl.temp[i, j - 1] == 3)
                             {
-                                PrzypiszRuch_ZmienStanPlanszy(Zawodnik, i, j, pl, 0, -4);
+                                Ruch ri = new Ruch();
+                                ri.bicie = true;
+                                ri.bityPionek.x = i;
+                                ri.bityPionek.y = j - 2;
+                                ri.skad.x = i ; ri.skad.y = j -4 ;
+                                ri.dokad.x = i; ri.dokad.y = j;
+                                ListaBic.Add(ri);
                             }
                         if (i + 4 <= 8 && j - 4 >= 0)
                             if (pl.temp[i + 4, j - 4] == Zawodnik && pl.temp[i + 2, j - 2] != Zawodnik && pl.temp[i + 2, j - 2] != 0 && pl.temp[i + 3, j - 3] == 5 && pl.temp[i + 1, j - 1] == 5)
                             {
-                                PrzypiszRuch_ZmienStanPlanszy(Zawodnik, i, j, pl, 4, -4);
+                                Ruch ri = new Ruch();
+                                ri.bicie = true;
+                                ri.bityPionek.x = i + 2;
+                                ri.bityPionek.y = j - 2;
+                                ri.skad.x = i + 4; ri.skad.y = j - 4;
+                                ri.dokad.x = i; ri.dokad.y = j;
+                                ListaBic.Add(ri);
                             }
                     }
                 }
             }
             //Console.WriteLine(LBic.Count);
         }
-        private void PrzypiszRuch_ZmienStanPlanszy(int Zawodnik, int i, int j, Plansza pl, int x, int y) //funkcja pomocnicza mająca na celu zmienić stan planszy po wykonaniu możliwego bicia
+       
+        public void wykonajRuchIZmienStanPlanszy(int zawodnik, Ruch ruch, int[,] plansza)
         {
-            Ruch r = new Ruch();
-            r.skad.x = i + x; r.skad.y = j + y;
-            r.dokad.x = i; r.dokad.y = j;
-            r.bityPionek.x = i + x / 2;
-            r.bityPionek.y = j + y / 2;
-            r.bicie = true;
-            Bicie b = new Bicie();
-            b.lRuchBic.Add(r);
-            pl.temp[i, j] = Zawodnik;
-            pl.temp[i + x, j + y] = 0;
-            pl.temp[i + x / 2, j + y / 2] = 0;
-            RozbijListe2(b);
-            //LBic.Add(b);
-            Array.Copy(pl.stan, 0, pl.temp, 0, pl.stan.Length);
-        }
-        public void wykonajRuchUniwersalny(int Zawodnik, List<Ruch> lr, int[,] pl)
-        {
-            for (int i = 0; i < lr.Count; i++)
+
+            if (ruch.bicie)// jeżeli jest to bicie to w miejscu zbijanego pionka wpisujemy 0
             {
-                if (lr.ElementAt(i).bicie == true)// jeżeli jest to bicie to w miejscu zbijanego pionka wpisujemy 0
-                    pl[lr.ElementAt(i).bityPionek.x, lr.ElementAt(i).bityPionek.y] = 0;
-                pl[lr.ElementAt(i).skad.x, lr.ElementAt(i).skad.y] = 0;
-                pl[lr.ElementAt(i).dokad.x, lr.ElementAt(i).dokad.y] = Zawodnik;
+                plansza[ruch.bityPionek.x, ruch.bityPionek.y] = 0;
             }
+            plansza[ruch.skad.x, ruch.skad.y] = 0;
+            plansza[ruch.dokad.x, ruch.dokad.y] = zawodnik;
+
         }
-        private void RozbijListe2(Bicie b)
-        {
-            for (int i = 1; i < b.lRuchBic.Count + 1; i++)
-            {
-                Bicie b1 = new Bicie();
-                if (i == b.lRuchBic.Count)
-                {
-                    b1.lRuchBic.Add(b.lRuchBic.ElementAt(i - 1));
-                    int x = b.lRuchBic.ElementAt(i - 1).poziom;
-                    int j = i - 2;
-                    while (j >= 0)
-                    {
-                        if (x - 1 == b.lRuchBic.ElementAt(j).poziom)
-                        {
-                            x--;
-                            b1.lRuchBic.Add(b.lRuchBic.ElementAt(j));
-                        }
-                        j--;
-                    }
-                    b1.lRuchBic.Reverse(0, b1.lRuchBic.Count);
-                    LBic.Add(b1);
-                }
-                else
-                {
-                    if (b.lRuchBic.ElementAt(i - 1).poziom >= b.lRuchBic.ElementAt(i).poziom)
-                    {
-                        b1.lRuchBic.Add(b.lRuchBic.ElementAt(i - 1));
-                        int x = b.lRuchBic.ElementAt(i - 1).poziom;
-                        int j = i - 2;
-                        while (j >= 0)
-                        {
-                            if (x - 1 == b.lRuchBic.ElementAt(j).poziom)
-                            {
-                                x--;
-                                b1.lRuchBic.Add(b.lRuchBic.ElementAt(j));
-                            }
-                            j--;
-                        }
-                        b1.lRuchBic.Reverse(0, b1.lRuchBic.Count);
-                        LBic.Add(b1);
-                    }
-                }
-            }
-        } 
+        
     }
 }
