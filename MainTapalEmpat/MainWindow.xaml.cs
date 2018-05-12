@@ -61,17 +61,23 @@ namespace MainTapalEmpat
             //ruch komputera 
             else if (tura_gracza == false)
             {
-                //plansza.pokazStanPlanszy();
+                plansza.pokazStanPlanszy();
                 drzewo.plansza_poczatkowa.uaktualnijStanPlanszy(plansza.stan);
                 drzewo.utworzDrzewo();
-                int z = drzewo.alfaBeta(drzewo.root, 10, -10);
-                Ruch r = drzewo.zwrocRuchKomputera(z);
-                
+                int wartoscAlfaBeta = drzewo.alfaBeta(drzewo.root, 10, -10);
+                Ruch r = drzewo.zwrocRuchKomputera(wartoscAlfaBeta);
+                operacje.wykonajRuchIZmienStanPlanszy(1,r,plansza.stan);
+                uaktualnijWizualizacjePlanszy(r);
+                Console.WriteLine("//////////////////////////");
+                plansza.pokazStanPlanszy();
+                tura_gracza = true;
+
             }
             //ruch gracza
             else if (tura_gracza == true && licznik_owieczek >= 18)
             {
-                
+                dodajOwieczke(piece);
+                tura_gracza = false;
             }
             if (licznik_owieczek == 18 && licznik_tygrysow == 2)
             {
@@ -109,6 +115,27 @@ namespace MainTapalEmpat
             piece.Style = FindResource("tiger") as Style;
             debugBox.Text = "TouchedPiece : " + piece.Name;       
             plansza.dodajTygrysaDoPlanszy(x, y);
+        }
+        private void uaktualnijWizualizacjePlanszy(Ruch ruch)
+        {
+            Button szukany = (Button)FindName("btn" + ruch.skad.x + ruch.skad.y);
+            szukany.Style = FindResource("emptyField") as Style;
+            if (ruch.bicie == false)
+            {
+                szukany = (Button)FindName("btn" + ruch.dokad.x + ruch.dokad.y);
+                szukany.Style = FindResource("tiger") as Style;
+            }
+            else
+            {
+                szukany = (Button)FindName("btn" + ruch.bityPionek.x + ruch.bityPionek.y);
+                szukany.Style = FindResource("emptyField") as Style;
+
+                szukany = (Button)FindName("btn" + ruch.dokad.x + ruch.dokad.y);
+                szukany.Style = FindResource("tiger") as Style;
+            }
+            
+
+
         }
 
     }
