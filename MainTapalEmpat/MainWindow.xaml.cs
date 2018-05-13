@@ -25,9 +25,14 @@ namespace MainTapalEmpat
         Operacje operacje;
         int licznik_tygrysow = 0;
         int licznik_owieczek = 0;
-
+        int aktualna_liczba_owieczek = 0;
+        int licznik_pocz_tur = 18;
         private Drzewo drzewo;
 
+        private bool pierwszyKlik = false;
+
+        int a = 0;
+        int b = 0;
 
         public MainWindow()
         {
@@ -45,6 +50,7 @@ namespace MainTapalEmpat
         {
             Button piece = (Button)sender;
             debugBox.Text = "Btn style: " + piece.Style.ToString();
+           
             //2 tygrysy umieszczane na poczatku gry w srodkowym kwadracie
             if (licznik_tygrysow < 2)
             {
@@ -52,40 +58,93 @@ namespace MainTapalEmpat
 
             }
             //gracz rozmieszcza owieczki
-            else if (tura_gracza == true && licznik_owieczek < 18)
+            else if (tura_gracza == true && licznik_owieczek < licznik_pocz_tur)
             {
                 dodajOwieczke(piece);
+                aktualna_liczba_owieczek++;
                 licznik_owieczek++;
                 tura_gracza = false;
             }
             //ruch komputera 
             else if (tura_gracza == false)
             {
-                plansza.pokazStanPlanszy();
-                drzewo.plansza_poczatkowa.uaktualnijStanPlanszy(plansza.stan);
-                drzewo.utworzDrzewo();
-                int wartoscAlfaBeta = drzewo.alfaBeta(drzewo.root, 10, -10);
-                Ruch r = drzewo.zwrocRuchKomputera(wartoscAlfaBeta);
-                operacje.wykonajRuchIZmienStanPlanszy(1,r,plansza.stan);
-                uaktualnijWizualizacjePlanszy(r);
-                Console.WriteLine("//////////////////////////");
-                plansza.pokazStanPlanszy();
-                tura_gracza = true;
-
+                ruchKomputera();
             }
             //ruch gracza
-            else if (tura_gracza == true && licznik_owieczek >= 18)
+            else if (tura_gracza == true && licznik_owieczek >= licznik_pocz_tur)
             {
-                dodajOwieczke(piece);
-                tura_gracza = false;
+                debugBox.Text = "zacznij";
+
+                
+                if (pierwszyKlik == false)
+                {
+                    debugBox.Text = "zacznij1";
+                    a = Convert.ToInt32(Char.GetNumericValue(piece.Name[3]));
+                    b = Convert.ToInt32(Char.GetNumericValue(piece.Name[4]));
+                    pierwszyKlik = true;
+                    return;
+                }
+                if (pierwszyKlik == true)
+                {
+                    debugBox.Text = "zacznij2";
+                    int x1 = Convert.ToInt32(Char.GetNumericValue(piece.Name[3]));
+                    int y1 = Convert.ToInt32(Char.GetNumericValue(piece.Name[4]));
+                    if ( a!=x1 || b != y1)
+                    {
+                        Ruch r = new Ruch();
+                        r.skad.x = a;
+                        r.skad.y = b;
+                        r.dokad.x = x1;
+                        r.dokad.y = y1;
+                        uaktualnijWizualizacjePlanszyOwiec(r);
+                        plansza.stan[a, b] = 0;
+                        plansza.stan[x1, y1] = 2;
+                        plansza.pokazStanPlanszy();
+                        pierwszyKlik = false;
+                        tura_gracza = false;
+                    }
+                    else
+                    {
+                        debugBox.Text = "wybierz pionek";
+                        pierwszyKlik = false;
+                    }
+                    
+                }
             }
-            if (licznik_owieczek == 18 && licznik_tygrysow == 2)
-            {
-                debugBox.Text = "Pionki rozstawione";
-            }
+        
 
         }
+        private void ruchKomputera()
+        {
+            if (aktualna_liczba_owieczek < 6)
+            {
+                drzewo.ilePoziomow = 4;
+            }
+            else if (aktualna_liczba_owieczek >= 6 && aktualna_liczba_owieczek < 12)
+            {
+                drzewo.ilePoziomow = 8;
+            }
+            else if (aktualna_liczba_owieczek >= 12 && aktualna_liczba_owieczek <= 18)
+            {
+                drzewo.ilePoziomow = 10;
+            }
+            plansza.pokazStanPlanszy();
+            drzewo.plansza_poczatkowa.uaktualnijStanPlanszy(plansza.stan);
+            drzewo.utworzDrzewo();
 
+            int wartoscAlfaBeta = drzewo.alfaBeta(drzewo.root, 10, -10);
+            Ruch r = drzewo.zwrocRuchKomputera(wartoscAlfaBeta);
+            if (r.bicie == true)
+            {
+                aktualna_liczba_owieczek--;
+            }
+            operacje.wykonajRuchIZmienStanPlanszy(1, r, plansza.stan);
+            uaktualnijWizualizacjePlanszyTygrysow(r);
+            Console.WriteLine("//////////////////////////");
+            //plansza.pokazStanPlanszy();
+            tura_gracza = true;
+
+        }
         private void umiescTygrysyNaPlanszy(Button piece)
         {
             int x = Convert.ToInt32(Char.GetNumericValue(piece.Name[3]));
@@ -116,7 +175,7 @@ namespace MainTapalEmpat
             debugBox.Text = "TouchedPiece : " + piece.Name;       
             plansza.dodajTygrysaDoPlanszy(x, y);
         }
-        private void uaktualnijWizualizacjePlanszy(Ruch ruch)
+        private void uaktualnijWizualizacjePlanszyTygrysow(Ruch ruch)
         {
             Button szukany = (Button)FindName("btn" + ruch.skad.x + ruch.skad.y);
             szukany.Style = FindResource("emptyField") as Style;
@@ -134,6 +193,18 @@ namespace MainTapalEmpat
                 szukany.Style = FindResource("tiger") as Style;
             }
             
+
+
+        }
+        private void uaktualnijWizualizacjePlanszyOwiec(Ruch ruch)
+        {
+            Button szukany = (Button)FindName("btn" + ruch.skad.x + ruch.skad.y);
+            szukany.Style = FindResource("emptyField") as Style;
+            szukany = (Button)FindName("btn" + ruch.dokad.x + ruch.dokad.y);
+            szukany.Style = FindResource("sheep") as Style;
+            
+          
+
 
 
         }
