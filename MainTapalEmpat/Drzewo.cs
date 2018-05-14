@@ -160,7 +160,7 @@ namespace MainTapalEmpat
                 Max2 = true;
             }
 
-            if (poziom < 10)
+            if (poziom < ilePoziomow)
             {
                 if (poziom == 0)
                 {

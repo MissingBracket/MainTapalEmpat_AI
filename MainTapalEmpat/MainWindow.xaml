@@ -101,12 +101,14 @@
         </Style>
 
     </Window.Resources>
-    <Viewbox>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="resources/mememan.jpg"/>
+        </Grid.Background>
+        <Viewbox>
         <Grid Height="768" Width="1366">
 
-            <Grid.Background>
-                <ImageBrush ImageSource="resources/mememan.jpg"/>
-            </Grid.Background>
+            
             <Button Content="Zakończ grę" HorizontalAlignment="Left" Margin="986,626,0,0" VerticalAlignment="Top" Width="117" Click="Button_Click" Height="30" Background="#FFCF6D29" BorderBrush="#FF5D2D0B" Foreground="White"/>
 
             <!--<Button Height="50" Width="50" Click="Button_Click_1" Name="tigera" Margin="54,327,51.2,313.4">
@@ -358,4 +360,5 @@
 
         </Grid>
     </Viewbox>
+    </Grid>
 </Window>
