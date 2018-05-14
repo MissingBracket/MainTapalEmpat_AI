@@ -26,7 +26,7 @@ namespace MainTapalEmpat
         int licznik_tygrysow = 0;
         int licznik_owieczek = 0;
         int aktualna_liczba_owieczek = 0;
-        int licznik_poczatkowych_tur = 1;
+        int licznik_poczatkowych_tur = 18;
         private Drzewo drzewo;
     
         private bool pierwszyKlik = false;
