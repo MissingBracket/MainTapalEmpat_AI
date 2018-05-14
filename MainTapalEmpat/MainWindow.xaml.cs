@@ -26,9 +26,9 @@ namespace MainTapalEmpat
         int licznik_tygrysow = 0;
         int licznik_owieczek = 0;
         int aktualna_liczba_owieczek = 0;
-        int licznik_poczatkowych_tur = 3;
+        int licznik_poczatkowych_tur = 1;
         private Drzewo drzewo;
-
+    
         private bool pierwszyKlik = false;
 
         int a = 0;
@@ -95,6 +95,9 @@ namespace MainTapalEmpat
             }
             if (pierwszyKlik == true)
             {
+
+                plansza.uaktualnijTempPlanszy(plansza.stan);
+                operacje.generujMozliweRuchyOwiec(2,this.plansza);
                 debugBox.Text = "zacznij2";
                 int x1 = Convert.ToInt32(Char.GetNumericValue(piece.Name[3]));
                 int y1 = Convert.ToInt32(Char.GetNumericValue(piece.Name[4]));
@@ -105,13 +108,22 @@ namespace MainTapalEmpat
                     r.skad.y = b;
                     r.dokad.x = x1;
                     r.dokad.y = y1;
-                    uaktualnijWizualizacjePlanszyOwiec(r);
-                    plansza.stan[a, b] = 0;
-                    plansza.stan[x1, y1] = 2;
-                    plansza.pokazStanPlanszy();
-                    pierwszyKlik = false;
-                    tura_gracza = false;
-                    ruchKomputera2();
+                    if (ruchJestMozliwy(r)) 
+                    {
+                        uaktualnijWizualizacjePlanszyOwiec(r);
+                        plansza.stan[a, b] = 0;
+                        plansza.stan[x1, y1] = 2;
+                        //plansza.pokazStanPlanszy();
+                        pierwszyKlik = false;
+                        tura_gracza = false;
+                        ruchKomputera2();
+                    }
+                    else
+                    {
+                        debugBox.Text = "zly ruch";
+                        pierwszyKlik = false;
+                    }
+                   
 
                 }
                 else
@@ -138,7 +150,7 @@ namespace MainTapalEmpat
             {
                 drzewo.ilePoziomow = 10;
             }
-            plansza.pokazStanPlanszy();
+           // plansza.pokazStanPlanszy();
             drzewo.plansza_poczatkowa.uaktualnijStanPlanszy(plansza.stan);
             drzewo.utworzDrzewo();
 
@@ -155,6 +167,17 @@ namespace MainTapalEmpat
             tura_gracza = true;
 
         }
+        private bool ruchJestMozliwy(Ruch ruch)
+        {
+            foreach (Ruch r in operacje.ListaRuchow)
+            {
+                if (r.skad.x == ruch.skad.x && r.skad.y == ruch.skad.y && r.dokad.x == ruch.dokad.x && r.dokad.y == ruch.dokad.y)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
         private void ruchKomputera()
         {
             if (aktualna_liczba_owieczek < 6)
@@ -169,7 +192,7 @@ namespace MainTapalEmpat
             {
                 drzewo.ilePoziomow = 10;
             }
-            plansza.pokazStanPlanszy();
+            //plansza.pokazStanPlanszy();
             drzewo.plansza_poczatkowa.uaktualnijStanPlanszy(plansza.stan);
             drzewo.utworzDrzewo();
 
@@ -184,7 +207,6 @@ namespace MainTapalEmpat
             Console.WriteLine("//////////////////////////");
             //plansza.pokazStanPlanszy();
             tura_gracza = true;
-
         }
         private void umiescTygrysyNaPlanszy(Button piece)
         {

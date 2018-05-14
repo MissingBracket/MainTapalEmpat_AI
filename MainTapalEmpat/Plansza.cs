@@ -31,6 +31,10 @@ namespace MainTapalEmpat
             temp = new int[9, 9];
             Array.Copy(stan, 0, temp, 0, stan.Length);
         }
+        public void uaktualnijTempPlanszy(int[,] nowyStan)
+        {
+            Array.Copy(nowyStan, 0, temp, 0, stan.Length);
+        }
         public void uaktualnijStanPlanszy(int[,] nowyStan)
         {
             Array.Copy(nowyStan, 0, stan, 0, stan.Length);

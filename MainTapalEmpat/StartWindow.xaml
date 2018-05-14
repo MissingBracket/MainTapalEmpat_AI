@@ -8,13 +8,14 @@
         Title="StartWindow" Height="768" Width="1366" WindowState="Maximized">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="resources/mememan.jpg"/>
+            <ImageBrush ImageSource="resources/tlo2.jpg"/>
         </Grid.Background>
         <Viewbox>
             <Grid  Height="768" Width="1366">
 
-                <Button Content="Rozpocznij grę" HorizontalAlignment="Left" Margin="450,0,100,200" VerticalAlignment="Bottom" Width="496" Height="40" Background="#FFCF6D29" BorderBrush="#FF5D2D0B" Foreground="White" Grid.ColumnSpan="2" Click="Button_Click_Start"/>
-                <Button Content= "Wyjdź" HorizontalAlignment="Left" Margin="450,0,300,100" VerticalAlignment="Bottom" Width="496" Height="40" Background="#FFCF6D29" BorderBrush="#FF5D2D0B" Foreground="White" Grid.ColumnSpan="2" Click="Button_Click_End"/>
+                <Button Content="Rozpocznij grę" HorizontalAlignment="Left" Margin="450,0,100,100" VerticalAlignment="Bottom" Width="496" Height="40" Background="#FFCF6D29" BorderBrush="#FF5D2D0B" Foreground="White" Grid.ColumnSpan="2" Click="Button_Click_Start"/>
+                <Button Content= "Wyjdź" HorizontalAlignment="Left" Margin="450,0,300,40" VerticalAlignment="Bottom" Width="496" Height="40" Background="#FFCF6D29" BorderBrush="#FF5D2D0B" Foreground="White" Grid.ColumnSpan="2" Click="Button_Click_End"/>
+                <Image HorizontalAlignment="Left" Height="450" Margin="470,44,0,180" VerticalAlignment="Bottom" Width="496" Source="resources/screen.png"/>
             </Grid>
         </Viewbox>
     </Grid>

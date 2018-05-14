@@ -103,15 +103,15 @@
     </Window.Resources>
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="resources/mememan.jpg"/>
+            <ImageBrush ImageSource="resources/tlo2.jpg"/>
         </Grid.Background>
         <Viewbox>
-        <Grid Height="768" Width="1366">
+            <Grid Height="768" Width="1366">
 
-            
-            <Button Content="Zakończ grę" HorizontalAlignment="Left" Margin="986,626,0,0" VerticalAlignment="Top" Width="117" Click="Button_Click" Height="30" Background="#FFCF6D29" BorderBrush="#FF5D2D0B" Foreground="White"/>
 
-            <!--<Button Height="50" Width="50" Click="Button_Click_1" Name="tigera" Margin="54,327,51.2,313.4">
+                <Button Content="Zakończ grę" HorizontalAlignment="Left" Margin="986,626,0,0" VerticalAlignment="Top" Width="117" Click="Button_Click" Height="30" Background="#FFCF6D29" BorderBrush="#FF5D2D0B" Foreground="White"/>
+
+                <!--<Button Height="50" Width="50" Click="Button_Click_1" Name="tigera" Margin="54,327,51.2,313.4">
                 <Button.Template>
                     <ControlTemplate>
                         <Image Source="resources/tiger.png"/>
@@ -274,91 +274,92 @@
 
 
 
-            <TextBox Name="debugBox" HorizontalAlignment="Left" Height="23" Margin="934,211,0,0" TextWrapping="Wrap" Text="debug info" VerticalAlignment="Top" Width="248" IsEnabled="False"/>
-            <Grid HorizontalAlignment="Left" Height="600" Margin="329,110,0,0" VerticalAlignment="Top" Width="600">
-                <Grid.Background>
-                    <ImageBrush ImageSource="resources/board.png"/>
-                </Grid.Background>
+                <TextBox Name="debugBox" HorizontalAlignment="Left" Height="195" Margin="986,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="248" IsEnabled="False"/>
+                <Grid HorizontalAlignment="Left" Height="600" Margin="329,110,0,0" VerticalAlignment="Top" Width="600">
+                    <Grid.Background>
+                        <ImageBrush ImageSource="resources/board.png"/>
+                    </Grid.Background>
 
 
-                <Grid x:Name="z1" Margin="10,0,530,10" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
-                    <Button Name="btn80" Tag="80" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                    <Grid x:Name="z1" Margin="10,0,530,10" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                        <Button Name="btn80" Tag="80" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                    </Grid>
+                    <Grid x:Name="z2" Margin="143,0,397,10" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                        <Button Name="btn82" Tag="82" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                    </Grid>
+                    <Grid x:Name="z3" Margin="271,0,269,10" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                        <Button Name="btn84" Tag="84" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                    </Grid>
+                    <Grid x:Name="z4" Margin="399,0,141,10" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                        <Button Name="btn86" Tag="86" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                    </Grid>
+                    <Grid x:Name="z5" Margin="528,0,12,10" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                        <Button Name="btn88" Tag="88" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                    </Grid>
+                    <Grid x:Name="z6" Margin="10,0,530,141" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                        <Button Name="btn60" Tag="60" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                    </Grid>
+                    <Grid x:Name="z7" Margin="141,0,399,141" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                        <Button Name="btn62" Tag="62" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                    </Grid>
+                    <Grid x:Name="z8" Margin="271,0,269,141" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                        <Button Name="btn64" Tag="64" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                    </Grid>
+                    <Grid x:Name="z9" Margin="403,0,137,141" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                        <Button Name="btn66" Tag="66" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                    </Grid>
+                    <Grid x:Name="z10" Margin="528,0,12,141" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                        <Button Name="btn68" Tag="68" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                    </Grid>
+                    <Grid x:Name="z11" Margin="10,0,530,271" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                        <Button Name="btn40" Tag="40" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                    </Grid>
+                    <Grid x:Name="z12" Margin="143,0,397,271" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                        <Button Name="btn42" Tag="42" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                    </Grid>
+                    <Grid x:Name="z13" Margin="271,0,269,271" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                        <Button Name="btn44" Tag="44" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                    </Grid>
+                    <Grid x:Name="z14" Margin="403,0,137,271" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                        <Button Name="btn46" Tag="46" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                    </Grid>
+                    <Grid x:Name="z15" Margin="528,0,12,271" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                        <Button Name="btn48" Tag="48" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                    </Grid>
+                    <Grid x:Name="z16" Margin="10,0,530,402" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                        <Button Name="btn20" Tag="20" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                    </Grid>
+                    <Grid x:Name="z17" Margin="141,0,399,402" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                        <Button Name="btn22" Tag="22" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                    </Grid>
+                    <Grid x:Name="z18" Margin="271,0,269,402" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                        <Button Name="btn24" Tag="24" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                    </Grid>
+                    <Grid x:Name="z19" Margin="399,0,141,402" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                        <Button Name="btn26" Tag="26" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                    </Grid>
+                    <Grid x:Name="z20" Margin="530,0,10,402" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                        <Button Name="btn28" Tag="28" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                    </Grid>
+                    <Grid x:Name="z21" Margin="10,0,530,530" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                        <Button Name="btn00" Tag="00" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                    </Grid>
+                    <Grid x:Name="z22" Margin="141,0,399,530" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                        <Button Name="btn02" Tag="02" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                    </Grid>
+                    <Grid x:Name="z23" Margin="271,0,269,530" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                        <Button Name="btn04" Tag="04" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                    </Grid>
+                    <Grid x:Name="z24" Margin="399,0,141,530" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                        <Button Name="btn06" Tag="06" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
+                    </Grid>
+                    <Grid x:Name="z25" Margin="528,0,12,530" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
+                        <Button Name="btn08" Tag="08" Style="{StaticResource emptyField}" Click="z1Btn_Click" Height="60" VerticalAlignment="Top"/>
+                    </Grid>
                 </Grid>
-                <Grid x:Name="z2" Margin="143,0,397,10" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
-                    <Button Name="btn82" Tag="82" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
-                </Grid>
-                <Grid x:Name="z3" Margin="271,0,269,10" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
-                    <Button Name="btn84" Tag="84" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
-                </Grid>
-                <Grid x:Name="z4" Margin="399,0,141,10" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
-                    <Button Name="btn86" Tag="86" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
-                </Grid>
-                <Grid x:Name="z5" Margin="528,0,12,10" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
-                    <Button Name="btn88" Tag="88" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
-                </Grid>
-                <Grid x:Name="z6" Margin="10,0,530,141" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
-                    <Button Name="btn60" Tag="60" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
-                </Grid>
-                <Grid x:Name="z7" Margin="141,0,399,141" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
-                    <Button Name="btn62" Tag="62" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
-                </Grid>
-                <Grid x:Name="z8" Margin="271,0,269,141" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
-                    <Button Name="btn64" Tag="64" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
-                </Grid>
-                <Grid x:Name="z9" Margin="403,0,137,141" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
-                    <Button Name="btn66" Tag="66" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
-                </Grid>
-                <Grid x:Name="z10" Margin="528,0,12,141" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
-                    <Button Name="btn68" Tag="68" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
-                </Grid>
-                <Grid x:Name="z11" Margin="10,0,530,271" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
-                    <Button Name="btn40" Tag="40" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
-                </Grid>
-                <Grid x:Name="z12" Margin="143,0,397,271" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
-                    <Button Name="btn42" Tag="42" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
-                </Grid>
-                <Grid x:Name="z13" Margin="271,0,269,271" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
-                    <Button Name="btn44" Tag="44" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
-                </Grid>
-                <Grid x:Name="z14" Margin="403,0,137,271" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
-                    <Button Name="btn46" Tag="46" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
-                </Grid>
-                <Grid x:Name="z15" Margin="528,0,12,271" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
-                    <Button Name="btn48" Tag="48" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
-                </Grid>
-                <Grid x:Name="z16" Margin="10,0,530,402" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
-                    <Button Name="btn20" Tag="20" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
-                </Grid>
-                <Grid x:Name="z17" Margin="141,0,399,402" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
-                    <Button Name="btn22" Tag="22" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
-                </Grid>
-                <Grid x:Name="z18" Margin="271,0,269,402" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
-                    <Button Name="btn24" Tag="24" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
-                </Grid>
-                <Grid x:Name="z19" Margin="399,0,141,402" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
-                    <Button Name="btn26" Tag="26" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
-                </Grid>
-                <Grid x:Name="z20" Margin="530,0,10,402" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
-                    <Button Name="btn28" Tag="28" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
-                </Grid>
-                <Grid x:Name="z21" Margin="10,0,530,530" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
-                    <Button Name="btn00" Tag="00" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
-                </Grid>
-                <Grid x:Name="z22" Margin="141,0,399,530" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
-                    <Button Name="btn02" Tag="02" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
-                </Grid>
-                <Grid x:Name="z23" Margin="271,0,269,530" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
-                    <Button Name="btn04" Tag="04" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
-                </Grid>
-                <Grid x:Name="z24" Margin="399,0,141,530" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
-                    <Button Name="btn06" Tag="06" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
-                </Grid>
-                <Grid x:Name="z25" Margin="528,0,12,530" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
-                    <Button Name="btn08" Tag="08" Style="{StaticResource emptyField}" Click="z1Btn_Click" Height="60" VerticalAlignment="Top"/>
-                </Grid>
+                <TextBox HorizontalAlignment="Left" Height="46" Margin="329,26,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="587"/>
+
             </Grid>
-
-        </Grid>
-    </Viewbox>
+        </Viewbox>
     </Grid>
 </Window>
