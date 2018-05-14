@@ -274,7 +274,7 @@
 
 
 
-                <TextBox Name="debugBox" HorizontalAlignment="Left" Height="195" Margin="986,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="248" IsEnabled="False"/>
+                <TextBox Name="debugBox" HorizontalAlignment="Left" Height="195" Margin="986,373,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="248" IsEnabled="False"/>
                 <Grid HorizontalAlignment="Left" Height="600" Margin="329,110,0,0" VerticalAlignment="Top" Width="600">
                     <Grid.Background>
                         <ImageBrush ImageSource="resources/board.png"/>
@@ -358,6 +358,7 @@
                     </Grid>
                 </Grid>
                 <TextBox HorizontalAlignment="Left" Height="46" Margin="329,26,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="587"/>
+                <Image Name="InsultBox" HorizontalAlignment="Left" Height="151" Margin="1003,185,0,0" VerticalAlignment="Top" Width="231"/>
 
             </Grid>
         </Viewbox>

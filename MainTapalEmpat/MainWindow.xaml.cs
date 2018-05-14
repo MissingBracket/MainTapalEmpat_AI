@@ -20,21 +20,23 @@ namespace MainTapalEmpat
     /// </summary>
     public partial class MainWindow : Window
     {
+        private string[] insults;
+        private string[] remarks;
         Plansza plansza;
         Boolean tura_gracza = false;
         Operacje operacje;
         int licznik_tygrysow = 0;
         int licznik_owieczek = 0;
         int aktualna_liczba_owieczek = 0;
-        int licznik_poczatkowych_tur = 1;
+        int licznik_poczatkowych_tur = 18;
         private Drzewo drzewo;
-    
+
         private bool pierwszyKlik = false;
 
         int a = 0;
         int b = 0;
+        Random rand;
 
-        
 
         public MainWindow()
         {
@@ -42,6 +44,33 @@ namespace MainTapalEmpat
             plansza = new Plansza();
             operacje = new Operacje();
             drzewo = new Drzewo();
+            rand = new Random();
+            generateInsults();
+        }
+        private void generateInsults()
+        {
+            this.insults = new string[10];
+            insults[0] = "Gdyby Polska stawiała budynki, jak Ty pionki, byłaby pustkowiem";
+            insults[1] = "Dobry ruch, Chodakowska pewnie jest dumna";
+            insults[2] = "Czy to było przemyślane?";
+            insults[3] = "Jak prawdziwa owieczka, niewinna i słaba";
+            insults[4] = "Już jesteś martwy";
+            insults[5] = "I have the eye of the tiger";
+            insults[6] = "Another one bites the dust";
+            insults[7] = "Wracaj do kolorowanek, wróć jak się podszkolisz";
+            insults[8] = "Widzisz ten czerwony krzyżyk? Wciśnij go";
+            insults[9] = "Get #Rekt Scrub";
+            this.remarks = new string[10];
+            remarks[0] = "Ciekawe, ciekawe";
+            remarks[1] = "No nie uciekaj już";
+            remarks[2] = "Jeszcze Cię dopadnę";
+            remarks[3] = "kici kici";
+            remarks[4] = "Give it to me baby";
+            remarks[5] = "Zaczynam tracić cierpliwość";
+            remarks[6] = "I'll be back";
+            remarks[7] = "Opór jest bezcelowy";
+            remarks[8] = "pssst. Stań obok, zaufaj mi";
+            remarks[9] = "Czasami mnie zaskakujesz";
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -51,7 +80,7 @@ namespace MainTapalEmpat
         {
             Button piece = (Button)sender;
             debugBox.Text = "Btn style: " + piece.Style.ToString();
-           
+
             //2 tygrysy umieszczane na poczatku gry w srodkowym kwadracie
             if (licznik_tygrysow < 2)
             {
@@ -62,8 +91,9 @@ namespace MainTapalEmpat
             else if (tura_gracza == true && licznik_owieczek < licznik_poczatkowych_tur)
             {
                 dodajOwieczke(piece);
-                
+
                 tura_gracza = false;
+               
                 ruchKomputera();
             }
 
@@ -71,9 +101,11 @@ namespace MainTapalEmpat
             else if (tura_gracza == true && licznik_owieczek >= licznik_poczatkowych_tur)
             {
                 ruchGracza(piece);
-                //nowe drzewo   
+                //nowe drzewo  
+                //Console.WriteLine("#rekt");
+                debugBox.Text = insults[rand.Next(1,10)];
             }
-        
+
 
         }
         private void ruchGracza(Button piece)
@@ -83,10 +115,10 @@ namespace MainTapalEmpat
 
             if (pierwszyKlik == false)
             {
-                debugBox.Text = "zacznij1";
+                //debugBox.Text = "zacznij1";
                 a = Convert.ToInt32(Char.GetNumericValue(piece.Name[3]));
                 b = Convert.ToInt32(Char.GetNumericValue(piece.Name[4]));
-                if (plansza.stan[a,b] == 2)
+                if (plansza.stan[a, b] == 2)
                 {
                     pierwszyKlik = true;
                     //zakreslona owieczka grafika
@@ -98,7 +130,7 @@ namespace MainTapalEmpat
             {
 
                 plansza.uaktualnijTempPlanszy(plansza.stan);
-                operacje.generujMozliweRuchyOwiec(2,this.plansza);
+                operacje.generujMozliweRuchyOwiec(2, this.plansza);
                 debugBox.Text = "zacznij2";
                 int x1 = Convert.ToInt32(Char.GetNumericValue(piece.Name[3]));
                 int y1 = Convert.ToInt32(Char.GetNumericValue(piece.Name[4]));
@@ -109,7 +141,7 @@ namespace MainTapalEmpat
                     r.skad.y = b;
                     r.dokad.x = x1;
                     r.dokad.y = y1;
-                    if (ruchJestMozliwy(r)) 
+                    if (ruchJestMozliwy(r))
                     {
                         uaktualnijWizualizacjePlanszyOwiec(r);
                         plansza.stan[a, b] = 0;
@@ -121,10 +153,10 @@ namespace MainTapalEmpat
                     }
                     else
                     {
-                        debugBox.Text = "zly ruch";
+                        debugBox.Text = "zly ruch!";
                         pierwszyKlik = false;
                     }
-                   
+
 
                 }
                 else
@@ -134,7 +166,7 @@ namespace MainTapalEmpat
                     debugBox.Text = "wybierz pionek";
                     pierwszyKlik = false;
                 }
-                
+
             }
         }
         private void ruchKomputera2()
@@ -151,7 +183,7 @@ namespace MainTapalEmpat
             {
                 drzewo.ilePoziomow = 10;
             }
-           // plansza.pokazStanPlanszy();
+            // plansza.pokazStanPlanszy();
             drzewo.plansza_poczatkowa.uaktualnijStanPlanszy(plansza.stan);
             drzewo.utworzDrzewo();
 
@@ -201,8 +233,16 @@ namespace MainTapalEmpat
             Ruch r = drzewo.zwrocRuchKomputera(wartoscAlfaBeta);
             if (r.bicie == true)
             {
+                InsultBox.Source = new BitmapImage(new Uri("pack://application:,,,/resources/insult (" + rand.Next(1, 8) + ").jpg"));
+                debugBox.Text = insults[rand.Next(1, 10)];
                 aktualna_liczba_owieczek--;
             }
+            else
+            {
+                InsultBox.Source = new BitmapImage(new Uri("pack://application:,,,/resources/hmm.jpg"));
+                debugBox.Text = remarks[rand.Next(1, 10)];
+            }
+                
             operacje.wykonajRuchIZmienStanPlanszy(1, r, plansza.stan);
             uaktualnijWizualizacjePlanszyTygrysow(r);
             Console.WriteLine("//////////////////////////");
@@ -226,7 +266,7 @@ namespace MainTapalEmpat
         private void dodajOwieczke(Button piece)
         {
             piece.Style = FindResource("sheep") as Style;
-            debugBox.Text = "TouchedPiece : " + piece.Name;
+            //debugBox.Text = "TouchedPiece : " + piece.Name;
             int x = Convert.ToInt32(Char.GetNumericValue(piece.Name[3]));
             int y = Convert.ToInt32(Char.GetNumericValue(piece.Name[4]));
             plansza.dodajOwieczkeDoPlanszy(x, y);
@@ -238,7 +278,7 @@ namespace MainTapalEmpat
             int x = Convert.ToInt32(Char.GetNumericValue(piece.Name[3]));
             int y = Convert.ToInt32(Char.GetNumericValue(piece.Name[4]));
             piece.Style = FindResource("tiger") as Style;
-            debugBox.Text = "TouchedPiece : " + piece.Name;       
+            //debugBox.Text = "TouchedPiece : " + piece.Name;
             plansza.dodajTygrysaDoPlanszy(x, y);
         }
         private void uaktualnijWizualizacjePlanszyTygrysow(Ruch ruch)
@@ -258,22 +298,20 @@ namespace MainTapalEmpat
                 szukany = (Button)FindName("btn" + ruch.dokad.x + ruch.dokad.y);
                 szukany.Style = FindResource("tiger") as Style;
             }
-            
+
 
 
         }
+
         private void uaktualnijWizualizacjePlanszyOwiec(Ruch ruch)
         {
             Button szukany = (Button)FindName("btn" + ruch.skad.x + ruch.skad.y);
             szukany.Style = FindResource("emptyField") as Style;
             szukany = (Button)FindName("btn" + ruch.dokad.x + ruch.dokad.y);
             szukany.Style = FindResource("sheep") as Style;
-            
-          
-
-
-
         }
+
+       
 
     }
 }
