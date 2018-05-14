@@ -34,6 +34,8 @@ namespace MainTapalEmpat
         int a = 0;
         int b = 0;
 
+        
+
         public MainWindow()
         {
             InitializeComponent();
@@ -41,10 +43,9 @@ namespace MainTapalEmpat
             operacje = new Operacje();
             drzewo = new Drzewo();
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-                
+            this.Close();
         }
         private void z1Btn_Click(object sender, RoutedEventArgs e)
         {

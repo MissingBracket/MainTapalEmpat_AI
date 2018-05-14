@@ -25,12 +25,14 @@ namespace MainTapalEmpat
 
         private void Button_Click_Start(object sender, RoutedEventArgs e)
         {
-
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
         }
 
         private void Button_Click_End(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
     }
 }
