@@ -30,7 +30,7 @@ namespace MainTapalEmpat
         int aktualna_liczba_owieczek = 0;
         int licznik_poczatkowych_tur = 18;
         private Drzewo drzewo;
-
+        private Boolean phase1 = true;
         private bool pierwszyKlik = false;
 
         int a = 0;
@@ -101,6 +101,7 @@ namespace MainTapalEmpat
             else if (tura_gracza == true && licznik_owieczek >= licznik_poczatkowych_tur)
             {
                 ruchGracza(piece);
+                MyFadingText.Text = "Pokonaj Wilki!";
                 //nowe drzewo  
                 //Console.WriteLine("#rekt");
                 debugBox.Text = insults[rand.Next(1,10)];
