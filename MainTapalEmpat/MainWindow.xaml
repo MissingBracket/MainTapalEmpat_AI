@@ -111,175 +111,32 @@
 
                 <Button Content="Zakończ grę" HorizontalAlignment="Left" Margin="986,626,0,0" VerticalAlignment="Top" Width="117" Click="Button_Click" Height="30" Background="#FFCF6D29" BorderBrush="#FF5D2D0B" Foreground="White"/>
 
-                <!--<Button Height="50" Width="50" Click="Button_Click_1" Name="tigera" Margin="54,327,51.2,313.4">
-                <Button.Template>
-                    <ControlTemplate>
-                        <Image Source="resources/tiger.png"/>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-            <Button Height="50" Width="50" Click="Button_Click_1" Name="tigerb" Margin="104,327,1.2,313.4">
-                <Button.Template>
-                    <ControlTemplate>
-                        <Image Source="resources/tiger.png"/>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-
-
-            <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepa" Grid.Column="1" Margin="750.8,492,61.6,148.4">
-                <Button.Template>
-                    <ControlTemplate>
-                        <Image Source="resources/sheep.png"/>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-
-            <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepb" Grid.Column="1" Margin="700.8,492,111.6,148.4">
-                <Button.Template>
-                    <ControlTemplate>
-                        <Image Source="resources/sheep.png"/>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-
-            <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepc" Grid.Column="1" Margin="800.8,437,11.6,203.4">
-                <Button.Template>
-                    <ControlTemplate>
-                        <Image Source="resources/sheep.png"/>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-
-            <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepd" Grid.Column="1" Margin="750.8,437,61.6,203.4">
-                <Button.Template>
-                    <ControlTemplate>
-                        <Image Source="resources/sheep.png"/>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-
-            <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepe" Grid.Column="1" Margin="700.8,437,111.6,203.4">
-                <Button.Template>
-                    <ControlTemplate>
-                        <Image Source="resources/sheep.png"/>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-
-            <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepf" Grid.Column="1" Margin="800.8,382,11.6,258.4">
-                <Button.Template>
-                    <ControlTemplate>
-                        <Image Source="resources/sheep.png"/>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-
-            <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepg" Grid.Column="1" Margin="750.8,382,61.6,258.4">
-                <Button.Template>
-                    <ControlTemplate>
-                        <Image Source="resources/sheep.png"/>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-
-            <Button Height="50" Width="50" Click="Button_Click_1" Name="sheeph" Grid.Column="1" Margin="700.8,382,111.6,258.4">
-                <Button.Template>
-                    <ControlTemplate>
-                        <Image Source="resources/sheep.png"/>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-
-            <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepi" Grid.Column="1" Margin="800.8,327,11.6,313.4">
-                <Button.Template>
-                    <ControlTemplate>
-                        <Image Source="resources/sheep.png"/>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-
-            <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepj" Grid.Column="1" Margin="750.8,327,61.6,313.4">
-                <Button.Template>
-                    <ControlTemplate>
-                        <Image Source="resources/sheep.png"/>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-
-            <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepk" Grid.Column="1" Margin="700.8,327,111.6,313.4">
-                <Button.Template>
-                    <ControlTemplate>
-                        <Image Source="resources/sheep.png"/>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-
-            <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepl" Grid.Column="1" Margin="800.8,272,11.6,368.4">
-                <Button.Template>
-                    <ControlTemplate>
-                        <Image Source="resources/sheep.png"/>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-
-            <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepm" Grid.Column="1" Margin="750.8,272,61.6,368.4">
-                <Button.Template>
-                    <ControlTemplate>
-                        <Image Source="resources/sheep.png"/>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-
-            <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepn" Grid.Column="1" Margin="700.8,272,111.6,368.4">
-                <Button.Template>
-                    <ControlTemplate>
-                        <Image Source="resources/sheep.png"/>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-
-            <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepo" Grid.Column="1" Margin="800.8,217,11.6,423.4">
-                <Button.Template>
-                    <ControlTemplate>
-                        <Image Source="resources/sheep.png"/>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-
-            <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepp" Grid.Column="1" Margin="750.8,217,61.6,423.4">
-                <Button.Template>
-                    <ControlTemplate>
-                        <Image Source="resources/sheep.png"/>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-
-            <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepq" Grid.Column="1" Margin="700.8,217,111.6,423.4">
-                <Button.Template>
-                    <ControlTemplate>
-                        <Image Source="resources/sheep.png"/>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
-
-            <Button Height="50" Width="50" Click="Button_Click_1" Name="sheepr" Margin="800.8,492,11.6,148.4" Grid.Column="1">
-                <Button.Template>
-                    <ControlTemplate>
-                        <Image Source="resources/sheep.png"/>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>-->
-
-
-
-
-                <TextBox Name="debugBox" HorizontalAlignment="Left" Height="195" Margin="986,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="248" IsEnabled="False"/>
+                <TextBox Name="debugBox" HorizontalAlignment="Left" Height="195" Margin="986,373,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="248" IsEnabled="False"/>
                 <Grid HorizontalAlignment="Left" Height="600" Margin="329,110,0,0" VerticalAlignment="Top" Width="600">
                     <Grid.Background>
                         <ImageBrush ImageSource="resources/board.png"/>
                     </Grid.Background>
+                    <TextBlock
+  Name="MyFadingText"
+  Margin="10,-95,-50,595" 
+  Width="640" Height="100" FontSize="48" FontWeight="Bold" Foreground="Maroon" Text="Postaw Pionki na planszy">
+  
 
+  <!-- Animates the text block's opacity. -->
+                        <TextBlock.Triggers>
+                            <EventTrigger RoutedEvent="TextBlock.Loaded">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+            Storyboard.TargetName="MyFadingText" 
+            Storyboard.TargetProperty="(TextBlock.Opacity)"
+            From="1.0" To="0.0" Duration="0:0:1" 
+            AutoReverse="True" RepeatBehavior="Forever" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </TextBlock.Triggers>
+                    </TextBlock>
 
                     <Grid x:Name="z1" Margin="10,0,530,10" RenderTransformOrigin="0.486,0.449" Width="60" Height="60" VerticalAlignment="Bottom">
                         <Button Name="btn80" Tag="80" Style="{StaticResource emptyField}" Click="z1Btn_Click"/>
@@ -357,7 +214,8 @@
                         <Button Name="btn08" Tag="08" Style="{StaticResource emptyField}" Click="z1Btn_Click" Height="60" VerticalAlignment="Top"/>
                     </Grid>
                 </Grid>
-                <TextBox HorizontalAlignment="Left" Height="46" Margin="329,26,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="587"/>
+                <TextBox HorizontalAlignment="Left" Height="40" Margin="986,110,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="299"/>
+                <Image Name="InsultBox" HorizontalAlignment="Left" Height="151" Margin="1003,185,0,0" VerticalAlignment="Top" Width="231"/>
 
             </Grid>
         </Viewbox>

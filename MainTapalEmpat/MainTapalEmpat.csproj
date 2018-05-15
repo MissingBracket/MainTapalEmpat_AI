@@ -116,5 +116,18 @@
   <ItemGroup>
     <Resource Include="resources\screen.PNG" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\insult %281%29.jpg" />
+    <Resource Include="resources\insult %282%29.jpg" />
+    <Resource Include="resources\insult %283%29.jpg" />
+    <Resource Include="resources\insult %284%29.jpg" />
+    <Resource Include="resources\insult %285%29.jpg" />
+    <Resource Include="resources\insult %286%29.jpg" />
+    <Resource Include="resources\insult %287%29.jpg" />
+    <Resource Include="resources\insult %288%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\hmm.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
