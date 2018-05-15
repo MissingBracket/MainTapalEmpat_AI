@@ -12,7 +12,7 @@ namespace MainTapalEmpat
         public Plansza plansza_poczatkowa = new Plansza();
         public Operacje operacje = new Operacje();
         public int ilePoziomow = 4;
-
+        public int counter = 0;
 
 
         public void utworzDrzewo()
@@ -142,7 +142,7 @@ namespace MainTapalEmpat
         {
             operacje.ListaRuchow.Clear();
             operacje.ListaBic.Clear();
-
+            counter++;
             int przeciwnik = -1;
             bool Min2 = false;
             bool Max2 = true;
@@ -206,7 +206,7 @@ namespace MainTapalEmpat
                         for (int j = 0; j < operacje.ListaRuchow.Count; j++)
                         {
                             //Console.WriteLine("poziom " + poziom + " kulka: " + j + ": dodaje wezel ruchu: [" + operacje.ListaRuchow[j].skad.x + "," + operacje.ListaRuchow[j].skad.y + "] -->" + "[" + operacje.ListaRuchow[j].dokad.x + "," + operacje.ListaRuchow[j].dokad.y + "]");
-                            wezel.dodajWezel(operacje.ListaRuchow.ElementAt(j), Min, Max, zawodnik, operacje, 0);
+                            wezel.dodajWezel(operacje.ListaRuchow.ElementAt(j), Min, Max, zawodnik, operacje, wezel);
                         }
                         for (int i = 0; i < wezel.lista_potomkow.Count; i++)
                         {
@@ -234,6 +234,15 @@ namespace MainTapalEmpat
                                 //Console.WriteLine("poziom " + poziom + " kulka: " + j + ": dodaje wezel ruchu: [" + operacje.ListaRuchow[j].skad.x + "," + operacje.ListaRuchow[j].skad.y + "] -->" + "[" + operacje.ListaRuchow[j].dokad.x + "," + operacje.ListaRuchow[j].dokad.y + "]");
                                 wezel.dodajWezel(operacje.ListaRuchow.ElementAt(j), Min, Max, 1, operacje, 0);
                             }
+                        }
+                        if (counter >=3 && counter %2 == 1)
+                        {
+                            operacje.generujMozliweRuchyWilkow(zawodnik, wezel.plansza);
+                            operacje.generujBiciaWilkow(zawodnik, wezel.plansza);
+                            int q = operacje.ListaRuchow.Count;
+                            int w = operacje.ListaBic.Count;
+                            int s = (q + w) * -1;
+                            wezel.nadajOcenePoziomWyzej(s);
                         }
                         for (int i = 0; i < wezel.lista_potomkow.Count; i++)
                         {
@@ -305,7 +314,6 @@ namespace MainTapalEmpat
 
             return 0;
         }
-
         public Ruch zwrocRuchKomputera(int alfaBetaValue)
         {
 

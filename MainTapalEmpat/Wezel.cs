@@ -13,11 +13,25 @@ namespace MainTapalEmpat
         public int ocena = 0;
         public bool min = false;
         public bool max = false;
-        public Wezel refkaParenta;
+        public Wezel refkaParenta = null;
 
+        public Wezel()
+        {
 
+        }
         public Wezel(Plansza pl, Operacje operacje, int suma,Ruch r)
         {
+            refkaParenta = new Wezel();
+            ruch = new Ruch();
+            ruch = r;
+            plansza = new Plansza();
+            lista_potomkow = new List<Wezel>();
+            ocena = suma;
+            plansza.uaktualnijStanPlanszy(pl.stan);
+        }
+        public Wezel(Plansza pl, Operacje operacje, int suma, Ruch r,Wezel wezel)
+        {
+            refkaParenta = new Wezel();
             ruch = new Ruch();
             ruch = r;
             plansza = new Plansza();
@@ -27,6 +41,7 @@ namespace MainTapalEmpat
         }
         public Wezel(Plansza pl, Operacje operacje, Ruch r)
         {
+            refkaParenta = new Wezel();
             ruch = new Ruch();
             ruch = r;
             plansza = new Plansza();
@@ -48,7 +63,7 @@ namespace MainTapalEmpat
          
            
         }
-        public void dodajWezel(Ruch ruch, bool Min, bool Max, int zawodnik, Operacje operacje, Wezel refkaParenta)
+        public void dodajWezel(Ruch ruch, bool Min, bool Max, int zawodnik, Operacje operacje, Wezel parent)
         {
 
             min = Min;
@@ -57,11 +72,12 @@ namespace MainTapalEmpat
             temp.uaktualnijStanPlanszy(plansza.stan);
             operacje.wykonajRuchIZmienStanPlanszy(zawodnik, ruch, temp.stan);
             //int nowaOcena = this.ocena + wartosc;
-            lista_potomkow.Add(new Wezel(temp, operacje, ruch));
+            refkaParenta = parent;
+            lista_potomkow.Add(new Wezel(temp, operacje,0, ruch, parent));
         }
-        public void nadajOcene2PoziomyWyzej(int wartosc)
+        public void nadajOcenePoziomWyzej(int wartosc)
         {
-            this.refkaParenta.refkaParenta.ocena = wartosc;
+            this.refkaParenta.ocena = wartosc;
         }
 
 

@@ -1,0 +1,23 @@
+﻿<Window x:Class="MainTapalEmpat.koniecGry"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MainTapalEmpat"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d"
+        Title="koniecGry" Height="300" Width="300" >
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="resources/tlo2.jpg"/>
+
+        </Grid.Background>
+
+        <Viewbox>
+
+            <Button Content="OK" FontSize="20" HorizontalAlignment="Left" Margin="250,400,200,0" VerticalAlignment="Bottom" Width="350" Height="70" Background="#FFCF6D29" BorderBrush="#FF5D2D0B" Foreground="White" Grid.ColumnSpan="2" Click="Button_Click"/>
+        </Viewbox>
+        <Label Name="label" Content = "Wygrałeś! Gratulacje!" FontSize="18" HorizontalAlignment="Left" Margin="62,0,0,130" VerticalAlignment="Bottom" Width="201" Height="36"  BorderBrush="#FF5D2D0B" Foreground="White" />
+
+    </Grid>
+</Window>
